@@ -1,0 +1,2 @@
+Train_Days_Count,Train_Date_Range,Val_Days_Count,Val_Date_Range,Test_Days_Count,Test_Date_Range,Train_Val_Overlap,Val_Test_Overlap,Train_Test_Overlap,Boundary_Integrity
+14,2026-03-08 to 2026-03-21,5,2026-03-22 to 2026-03-26,5,2026-03-27 to 2026-03-31,0,0,0,"STRICTLY CHRONOLOGICAL (Whole days, zero date overlap)"

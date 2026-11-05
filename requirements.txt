@@ -1,0 +1,13 @@
+# TransitIQ Core Dependencies (Pinned Production Versions)
+# Python compatibility: 3.9+
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.5.1
+xgboost==2.0.3
+fastapi==0.100.1
+uvicorn==0.23.2
+matplotlib==3.9.4
+seaborn==0.13.2
+tqdm==4.67.3
+psutil==7.2.2

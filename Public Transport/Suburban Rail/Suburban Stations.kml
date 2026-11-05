@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Stations</name>
+<Style id="Stations_style">
+</Style>
+<Placemark>
+  <name>Stations 1</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.282657,13.108887,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 2</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.293754,13.104081,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 3</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.290946,13.090525,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 4</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.283051,13.083121,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 5</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.29165,13.092109,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 6</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.274246,13.083638,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 7</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.277578,13.079118,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 8</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.273477,13.074083,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 9</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.280129,13.061205,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 10</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.280287,13.055462,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 11</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.276282,13.04529,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 12</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.269721,13.040527,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 13</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.266623,13.034799,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 14</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.260265,13.027581,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 15</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.25183,13.020778,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 16</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.24835,13.012697,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 17</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.247819,13.003869,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 18</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.249039,12.997714,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 19</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.251576,12.988016,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 20</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.241359,12.97896,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 21</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.231136,12.97556,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 22</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.220819,12.968017,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 23</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.272836,13.07939,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 24</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.26127,13.078961,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 25</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.24214,13.074518,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 26</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.232453,13.064067,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 27</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.231174,13.051556,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 28</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.227912,13.037925,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 29</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.223939,13.023708,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 30</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.213376,13.008507,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 31</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.200282,12.996181,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 32</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.185398,12.989265,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 33</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.17488,12.984866,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 34</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.270774,13.104207,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 35</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.257067,13.109332,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 36</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.245015,13.107977,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 37</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.237195,13.107931,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 38</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.226521,13.108695,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 39</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.210523,13.110417,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 40</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.184144,13.11362,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 41</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.166355,13.114898,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 42</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.154492,13.114556,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 43</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.279469,13.120161,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 44</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.280623,13.126823,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 45</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.28832,13.139822,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 46</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.296481,13.159015,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 47</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.306561,13.179272,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 48</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.317421,13.204698,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 49</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.321311,13.218352,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 50</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.072308,12.868037,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 51</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.166177,12.981066,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 52</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.152424,12.968484,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 53</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.141321,12.951597,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 54</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.131419,12.938176,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 55</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.120255,12.92677,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 56</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.095139,12.905427,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 57</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.084474,12.891434,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 58</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.137177,13.115672,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 59</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.12711,13.11647,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 60</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.101222,13.118581,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 61</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.074883,13.118654,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 62</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.064958,13.11902,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 63</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.045078,13.121413,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 64</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.027815,13.123795,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 65</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.275882,13.268768,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 66</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.289025,13.261281,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 67</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.25988,13.28179,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 68</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.299501,13.249637,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 69</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.205319,12.977363,0</coordinates>
+  </Point>
+</Placemark>
+<Placemark>
+  <name>Stations 70</name>
+  <styleUrl>#Stations_style</styleUrl>
+  <Point>
+    <coordinates>80.196968,12.98241,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml>

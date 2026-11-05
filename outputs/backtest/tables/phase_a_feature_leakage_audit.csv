@@ -1,0 +1,15 @@
+Feature,Latest_Timestamp_Relative_To_Forecast,Uses_Target_Hour_Or_Later,Leak_Status,Description
+hour,Known at schedule time (t_0),No (Deterministic calendar),NO LEAK,Hour of day (0 to 23)
+sin_hour / cos_hour,Known at schedule time (t_0),No (Deterministic calendar),NO LEAK,Cyclical diurnal encoding
+dow_num / sin_dow / cos_dow,Known at schedule time (t_0),No (Deterministic calendar),NO LEAK,Day of week encoding
+is_weekend,Known at schedule time (t_0),No (Deterministic calendar),NO LEAK,Weekend binary flag
+active_buses,Target hour end (t_0 + 60 min),YES (CRITICAL LEAK),LEAK FOUND,Actual distinct fleet_no count operating in target hour. Measured from tickets issued DURING target hour.
+deployed_capacity,Target hour end (t_0 + 60 min),YES (CRITICAL LEAK),LEAK FOUND,Computed as active_buses * 70. Directly leaks target-hour fleet operation.
+lag_1h_pax,Target hour start (t_0),YES (Relative to Lead Time >= 15 min),LEAK FOUND,"Ridership in [t_0 - 1h, t_0). If forecast is made 15-60 min prior to t_0, this interval has not finished."
+lag_2h_pax,t_0 - 60 min,No,NO LEAK,"Ridership in [t_0 - 2h, t_0 - 1h). Available at 60-min lead time."
+lag_1d_pax,t_0 - 24h,No,NO LEAK,Same route and hour ridership from previous calendar day.
+lag_7d_pax,t_0 - 168h,No,NO LEAK,Same route and hour ridership from previous week.
+rolling_mean_7d,t_0 - 24h,No,NO LEAK,7-day rolling mean of same hour demand shifted by 1 day.
+rolling_std_7d,t_0 - 24h,No,NO LEAK,7-day rolling std of same hour demand shifted by 1 day.
+hist_route_pax,End of TRAIN period,No,NO LEAK,Route-level mean passenger volume fit strictly on training days.
+hist_route_std,End of TRAIN period,No,NO LEAK,Route-level demand std fit strictly on training days.

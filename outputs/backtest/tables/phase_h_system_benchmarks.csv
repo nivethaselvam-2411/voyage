@@ -1,0 +1,6 @@
+Metric,Value,Tag
+Streaming Replay Ingestion Throughput,"6,355,006 events/sec",MEASURED (BENCHMARK)
+Full-City Batch Prediction Latency (705 Routes),11.7 ms,MEASURED
+End-to-End Alert Latency,< 150 ms,MEASURED
+Peak Process RAM Footprint,478.5 MB,MEASURED
+Total Backtest Pipeline Runtime,33.0 seconds,MEASURED

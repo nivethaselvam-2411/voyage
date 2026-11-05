@@ -1,0 +1,5 @@
+Lead_Time,Median_Achieved_Lead_Min,Tag,Precision,Recall,F1_Score,Total_False_Alarms_in_Test,False_Alarms_Per_Day,False_Alarms_Per_Route_Day,Operational_Rule
+60 min,60,MEASURED,0.5869856370941671,0.8871361764500594,0.7065036131183992,8943,1788.6,2.555,Trigger automated alert if P(Overcrowding) >= 0.50
+45 min,45,SIMULATED,0.5878106344578647,0.8865777901863614,0.7069234194122885,8907,1781.4,2.545,Trigger automated alert if P(Overcrowding) >= 0.50
+30 min,30,SIMULATED,0.5869875962558214,0.8885321421093041,0.7069472982728938,8957,1791.4,2.559,Trigger automated alert if P(Overcrowding) >= 0.50
+15 min,15,SIMULATED,0.5848511263017846,0.8897885112026244,0.7057911637692393,9049,1809.8,2.585,Trigger automated alert if P(Overcrowding) >= 0.50

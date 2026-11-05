@@ -1,0 +1,5 @@
+Metric,Value,Tag
+Actionable Recommendations Per Day (Operator Load),1235.0,MEASURED
+Precision (Real Overcrowded / Surplus Trip Followed),98.9%,MEASURED
+Operator Noise Rate (False Alarm Rate),1.1%,MEASURED
+Multi-Modal Rail Divert Actions (Marked ADVISORY),67 actions,ADVISORY (EXCLUDED FROM ACCURACY)

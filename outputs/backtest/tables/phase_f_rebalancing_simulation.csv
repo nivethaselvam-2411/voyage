@@ -1,0 +1,4 @@
+Simulation_Scenario,Receiver_Route,Donor_Route,Date_Time,Receiver_Pre_LF,Receiver_Post_LF,Donor_Pre_LF,Donor_Post_LF,Remaining_Overcrowded_Slots_in_Test,Tag
+Baseline Actual (No Intervention),Route 15,Route 202 (Same Operating Cluster),2026-03-27 18:00,1.18,1.18,0.22,0.22,14327,MEASURED
+Reallocate 1 Bus from Surplus to Deficit,Route 15,Route 202 (Same Operating Cluster),2026-03-27 18:00,1.18,1.1,0.22,0.29,12607,SIMULATED
+Reallocate 2 Buses from Surplus to Deficit,Route 15,Route 202 (Same Operating Cluster),2026-03-27 18:00,1.18,1.03,0.22,0.44,10888,SIMULATED
