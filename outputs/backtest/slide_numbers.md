@@ -17,6 +17,9 @@ All numbers below are verified against the out-of-time test set (March 27–31, 
 
 3. **Operational Dispatch Queue Precision:**
    - **`97.2%` Strict Precision (243 / 250)** (`MEASURED`)
+   - *Baseline Comparison:*
+     - **Route-Hour Recurrence Baseline (Historical >= 70%):** **99.20% Precision (248 / 250)**.
+     - **Route Daily Recurrence Baseline (Historical >= 70%):** **53.20% Precision (133 / 250)**.
    - *Queue:* Capped at 50 recommendations per day across 5 test days, ordered by operational action priority (`Priority 1: Fleet Injection` -> `Priority 2: Short-Turn Loop`).
    - *Breakdown by Action Type:*
      - **Fleet Injection:** **98.32%** strict precision (234 / 238 actions; 47.6/day).
@@ -29,12 +32,13 @@ All numbers below are verified against the out-of-time test set (March 27–31, 
    - Reconciles with the earlier 2,684 full-month exploratory figure.
 
 5. **Depot-Constrained Fleet Rebalancing (Separate Counterfactual Simulation):**
-   - **`216` Distinct Rebalancing Operations** across 16 depots over 5 test days (`SIMULATED`).
-   - *Total Fleet Transferred:* **759 buses** (Mean: 3.51 buses/pair).
-   - *Total Capacity Moved (pax):* **53,130 passenger-seats** (`SIMULATED`).
-   - *Actual Passenger Reduction:* **49,485 passengers** (`SIMULATED`).
-   - *Overcrowded Receivers:* Mean DCR reduced from **1.43x down to 1.11x** (Median: **1.42x to 1.00x**).
-   - *Complete Normalization:* **50.46% of overcrowded receivers (109 of 216)** brought to $\text{DCR} \le 1.0\text{x}$.
+   - **`204` Distinct Rebalancing Operations** across 16 depots over 5 test days (`SIMULATED`, enforced with minimum-benefit rule of $\ge 70\text{ pax}$ deficit).
+   - *Total Fleet Transferred:* **748 buses** (Mean: 3.67 buses/pair).
+   - *Total Capacity Moved (pax):* **52,360 passenger-seats** (`SIMULATED`).
+   - *Predicted Passenger Reduction:* **49,722 passengers** (`SIMULATED`).
+   - *Observed Passenger Reduction:* **49,137 passengers** (`SIMULATED`, evaluated against observed ex-post pax and active buses).
+   - *Overcrowded Receivers:* Mean DCR reduced from **1.45x down to 1.12x** (Median: **1.44x to 1.02x**).
+   - *Complete Normalization:* **47.06% of overcrowded receivers (96 of 204)** brought to $\text{DCR} \le 1.0\text{x}$.
    - *Donor Route Protection:* Donors stay **at or below 0.80x DCR, by design** (Post-transfer donor mean DCR = 0.49x, p95 = 0.73x, max = 0.80x; minimum 60% fleet retained).
    - *Zero Double-Counting:* Each donor route's spare buses are allocated strictly once per depot-date-hour.
 

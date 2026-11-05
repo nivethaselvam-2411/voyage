@@ -41,12 +41,21 @@
     "ranking": "Operational action priority (Fleet Injection -> Short-Turn Loop)",
     "tag": "MEASURED"
   },
-  "historical_recurrence_baseline": {
-    "queue_policy": "Top 50/day by historical recurrence >= 70% (Route daily recurrence)",
-    "strict_precision_percent": 53.2,
-    "correct_alerts": 133,
-    "total_alerts": 250,
-    "tag": "BASELINE"
+  "historical_recurrence_baselines": {
+    "route_hour_recurrence_baseline": {
+      "queue_policy": "Top 50/day by historical route-hour recurrence >= 70%",
+      "strict_precision_percent": 99.20,
+      "correct_alerts": 248,
+      "total_alerts": 250,
+      "tag": "BASELINE"
+    },
+    "route_daily_recurrence_baseline": {
+      "queue_policy": "Top 50/day by historical route daily recurrence >= 70%",
+      "strict_precision_percent": 53.20,
+      "correct_alerts": 133,
+      "total_alerts": 250,
+      "tag": "BASELINE"
+    }
   },
   "queue_precision_by_action_type": {
     "fleet_injection": {
@@ -79,17 +88,19 @@
     "tag": "MEASURED"
   },
   "depot_fleet_rebalancing_simulation": {
-    "distinct_operations": 216,
-    "buses_shifted": 759,
-    "capacity_moved_pax": 53130,
-    "actual_passenger_reduction": 49485,
-    "pct_receivers_reaching_target": 50.46,
-    "count_receivers_reaching_target": 109,
-    "receiver_dcr_pre_mean": 1.43,
-    "receiver_dcr_post_mean": 1.11,
+    "distinct_operations": 204,
+    "buses_shifted": 748,
+    "capacity_moved_pax": 52360,
+    "predicted_passenger_reduction": 49722,
+    "observed_passenger_reduction": 49137,
+    "pct_receivers_reaching_target": 47.06,
+    "count_receivers_reaching_target": 96,
+    "receiver_dcr_pre_mean": 1.45,
+    "receiver_dcr_post_mean": 1.12,
     "donor_dcr_post_mean": 0.49,
     "donor_dcr_post_p95": 0.73,
     "donor_dcr_post_max": 0.80,
+    "minimum_benefit_rule": "receiver deficit >= 70 pax (one bus load)",
     "donor_protection_rule": "donors stay at or below 0.80, by design; min 60% fleet retained; single allocation",
     "tag": "SIMULATED"
   },
