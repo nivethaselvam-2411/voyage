@@ -25,3 +25,4 @@ for t, hits in found.items():
     print(f'=== Target: "{t}" ===')
     for f, c in hits:
         print(f'  {f}: {c} occurrences')
+

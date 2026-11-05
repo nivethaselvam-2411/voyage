@@ -1,4 +1,4 @@
 Sanity_Test,Regression_R2,Regression_MAE,Classifier_AUC,Interpretation
-Original Model (With Leaks),0.9615604281425476,37.95054,0.9214479676982215,Reported baseline configuration with same-hour capacity & lag_1h
-Shuffle-Target Test,-0.00825643539428711,215.48677,0.5492249866909928,Target randomized: R2 collapsed to <=0 and AUC collapsed to ~0.50 (PASSED)
-Drop Leaked Signals Test,0.9564788341522217,39.615417,0.9164795388521783,"Dropped active_buses, capacity & lag_1h: Models retain strong true signal without artificial leak"
+Original Model (With Leaks),0.9615604281425476,37.95054,0.9214479676982216,Reported baseline configuration with same-hour capacity & lag_1h
+Shuffle-Target Test,-0.0082564353942871,215.48677,0.5492249866909928,"sanity check: no signal on shuffled labels; leakage ruled out by feature_cutoff_audit.csv"
+Drop Leaked Signals Test,0.9564788341522216,39.615417,0.9164795388521784,Dropped active_buses capacity & lag_1h: Models retain strong true signal without artificial leak

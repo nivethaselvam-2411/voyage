@@ -19,3 +19,4 @@ for line in res.stdout.splitlines():
                     file_count += 1
 
 print(f"Total Git-tracked repository size: {tracked_size / (1024*1024):.2f} MB across {file_count} files.")
+

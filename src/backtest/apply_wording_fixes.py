@@ -40,3 +40,4 @@ for p in target_files:
             print(f"Updated wording in: {p}")
 
 print("Term replacement completed successfully.")
+
