@@ -1,0 +1,38 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Large Raw Datasets and Parquet Dumps (Preserve lightweight aggregates only)
+data/
+ETM/
+*.csv.bz2
+*.parquet
+*.xlsx
+*.zip
+*.tar.gz
+*.bz2
+
+# Local Editor and IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Brain & Sandbox logs
+.system_generated/
+.gemini/
+scratch/

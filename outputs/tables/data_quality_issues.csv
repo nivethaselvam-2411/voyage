@@ -1,0 +1,6 @@
+issue,count,impact,action
+Negative Passenger Count,0,Invalid physical metric,Filtered out (pax >= 1)
+Zero Passenger Count,127945,Zero transaction ridership,Filtered out (pax >= 1)
+Extreme Pax Count (>200),20,Data entry/scanner error,Filtered out (pax <= 200)
+Negative Passenger Amount,0,Negative revenue value,Filtered out (amt >= 0)
+Time / Hour Parse Failures,0,Malformed timestamp,Defaulted to hour 0

@@ -1,0 +1,12 @@
+Feature,Description,Lookback_Source,Newest_Data_Timestamp,Lead_Time_Min,Strictly_Leaked
+hour,Calendar hour index of target slot (0-23),Deterministic schedule calendar,T (Known ex-ante by definition),>= 60 min (Fixed schedule parameter),NO
+dow_num,"Day of week index (0=Monday, 6=Sunday)",Deterministic schedule calendar,T (Known ex-ante by definition),>= 60 min (Fixed schedule parameter),NO
+is_weekend,Binary indicator for Saturday / Sunday,Deterministic schedule calendar,T (Known ex-ante by definition),>= 60 min (Fixed schedule parameter),NO
+ex_ante_capacity,Planned capacity = planned_buses * 70 pax,Yesterday same hour (t-24h) or 7-day median,T - 23h (Yesterday slot end),"1,380 min (23 hours prior)",NO
+lag_2h_pax,"Observed ticket ridership 2 hours prior [T-2h, T-1h)",Completed slot [T-2h to T-1h],T - 1h (Slot closes at T-1h:00),60 min (Exactly 1 hour prior to T),NO
+lag_3h_pax,"Observed ticket ridership 3 hours prior [T-3h, T-2h)",Completed slot [T-3h to T-2h],T - 2h (Slot closes at T-2h:00),120 min (2 hours prior to T),NO
+lag_1d_pax,"Observed ticket ridership yesterday same hour [T-24h, T-23h)",Completed slot yesterday [T-24h to T-23h],T - 23h (Slot closes at T-23h:00),"1,380 min (23 hours prior to T)",NO
+lag_7d_pax,"Observed ticket ridership 7 days prior [T-168h, T-167h)",Completed slot 7 days earlier,T - 167h (Slot closes at T-167h:00),"10,020 min (167 hours prior to T)",NO
+rolling_mean_7d,Mean passenger volume across past 7 days at same hour,Preceding 7 days (shift(1) across same hour),T - 23h (Yesterday same hour),"1,380 min (23 hours prior to T)",NO
+rolling_std_7d,Standard deviation of passenger volume across past 7 days,Preceding 7 days (shift(1) across same hour),T - 23h (Yesterday same hour),"1,380 min (23 hours prior to T)",NO
+train_mean_route_dow_hour,Historical route-hour-weekday mean ridership,"TRAIN period only (March 8-21, 2026)","March 21, 2026 23:00",">= 7,260 min (>= 5 full days prior)",NO

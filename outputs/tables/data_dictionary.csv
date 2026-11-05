@@ -1,0 +1,37 @@
+column,inferred_meaning,raw_dtype,pct_missing_sample,example_value
+id,Unique ticket transaction ID,int64,0.0,491788
+depot_code,Operating bus depot code (e.g. AY = Ayanavaram),object,0.0,AY
+depot,Full operating bus depot name,object,0.0,Ayanavaram Depot
+fleet_no,Bus vehicle fleet number (unique bus asset),object,0.0,K0297
+route_service_type,"Service type category (Ordinary, Express, Deluxe, etc.)",object,0.0,Ordinary
+trip_no,Trip sequential number for the bus duty shift,int64,0.0,1
+ticket_no,Consecutive ticket serial number issued in this trip,int64,0.0,1
+date,Date ticket was issued (DD-MM-YYYY format),object,0.0,01-03-2026
+time,Timestamp ticket was issued (HH:MM:SS),object,0.0,03:29:49
+ticket_type,"Passenger category (Adult, Child, Senior, Special concession)",object,0.0,Adult Ticket
+source,Boarding stage / stop name where passenger boarded,object,0.0,AYANAVARAM B.T
+destination,Alighting stage / stop name where passenger is destined,object,0.0,WHEELS INDIA RD.JN
+passenger_count,Number of passengers travelling on this ticket,int64,0.0,1
+luggage_count,Number of luggage units charged,int64,0.0,0
+passenger_amount,Fare charged for passenger journey (INR),float64,0.0,7.0
+luggage_amount,Fare charged for luggage (INR),float64,0.0,0.0
+driver_no,Employee ID of the driver assigned to the duty,object,0.0,D51192
+conductor_no,Employee ID of the conductor assigned to the duty,object,0.0,C53210
+waybill_no,Waybill (trip-sheet / duty shift) master identifier,object,0.0,T1772304238392452658
+schedule_no,"Operating schedule code containing route, trip type and shift",object,0.0,O-48C-W-AM
+payment_type,"Payment transaction mode (CASH, UPI, CARD, NCMC)",object,0.0,CASH
+direction,"Operational direction code (e.g., 48CCT - UP, DOWN)",object,0.0,48CCT - UP
+Trip_Origin,Scheduled starting terminus of the trip,object,0.0,AYANAVARAM B.T
+Trip_Destination,Scheduled termination terminus of the trip,object,0.0,M.G.R.KOYAMBEDU
+total_ticket_amount,Combined passenger and luggage fare (INR),float64,0.0,7.0
+KM,Distance in kilometers for the ticketed travel segment,float64,0.0,9.7
+duty_date,Scheduled date of operational duty assignment,object,0.0,2026-03-01
+from_stage,Boarding fare stage index,int64,0.0,4
+to_stage,Alighting fare stage index,float64,58.2,7.0
+add_trip,Flag indicating unscheduled/special operational trip (Y/N),object,0.0,N
+device_serial_number,Hardware ETM machine serial identifier,int64,0.0,1493453157
+NCMC_Recharge_Amount,Top-up recharge amount on National Common Mobility Card,float64,100.0,N/A
+pine_labs_transaction_no,Pine Labs POS gateway reference number for digital payments,float64,99.8,1218467941.0
+merchant_id,Merchant account identifier for payment processing,object,99.8,02PLE0000034896
+rrn_number,Reference Retrieval Number for card/UPI settlement,float64,99.8,642617161719.0
+terminal_id,Electronic terminal hardware identifier,float64,99.8,13140650.0

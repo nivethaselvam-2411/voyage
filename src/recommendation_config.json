@@ -1,0 +1,62 @@
+{
+  "operational_parameters": {
+    "rated_bus_capacity": 70,
+    "capacity deficit_bus_capacity": 85,
+    "severe_capacity deficit_threshold_lf": 1.20,
+    "overcrowded_threshold_lf": 1.00,
+    "surplus_threshold_lf": 0.40,
+    "min_surplus_active_buses": 4,
+    "consecutive_hours_threshold": 2,
+    "min_passenger_deficit": 300,
+    "diesel_cost_per_km_inr": 35.0,
+    "avg_route_length_km": 22.5
+  },
+  "action_types": {
+    "INJECT_DEPOT_RESERVE": {
+      "priority": 1,
+      "description": "Dispatch reserve standby bus from closest depot immediately",
+      "trigger": "Predicted Demand-to-Capacity Ratio (DCR) >= 1.25 AND Passenger Deficit >= 400"
+    },
+    "SHORT_TURN_SHUTTLE": {
+      "priority": 2,
+      "description": "Turn back bus early to serve high-demand mid-corridor choke point",
+      "trigger": "Predicted Demand-to-Capacity Ratio (DCR) between 1.10 and 1.25 AND High Stop Boarding Concentration"
+    },
+    "REALLOCATE_SURPLUS_FLEET": {
+      "priority": 3,
+      "description": "Withdraw surplus bus from under-utilized route and shift to adjacent deficit line",
+      "trigger": "Predicted Demand-to-Capacity Ratio (DCR) <= 0.40 AND Active Buses >= 4"
+    },
+    "DYNAMIC_PASSENGER_ADVISORY": {
+      "priority": 4,
+      "description": "Broadcast advisory on CUMTA app/digital displays to shift to parallel Suburban Rail / Metro",
+      "trigger": "Corridor overlapping with Rail/Metro where Bus Demand-to-Capacity Ratio (DCR) >= 1.20"
+    }
+  },
+  "depot_mappings": {
+    "570": "Adyar / Kelambakkam Depots",
+    "70V": "Vadapalani / Tambaram Depots",
+    "21G": "Broadway / Tambaram Depots",
+    "102": "Broadway / Kelambakkam Depots",
+    "29C": "Perambur / Besant Nagar Depots",
+    "48C": "Vallalar Nagar / CMBT Depots",
+    "11G": "Broadway / K.K. Nagar Depots",
+    "27B": "Anna Nagar / T.Nagar Depots",
+    "88K": "Broadway / Kundrathur Depots",
+    "D70": "Ambattur / Velachery Depots",
+    "56A": "Vallalar Nagar / Ennore Depots",
+    "62A": "Avadi / Red Hills Depots",
+    "44CT": "Broadway / Ennore Depots",
+    "32B": "V.Nagar / Tambaram Depots"
+  },
+  "rail_metro_corridor_parallel": {
+    "570": "Metro Phase 2 / MRTS Velachery Line",
+    "70V": "Chennai Suburban Beach-Tambaram / Metro Blue Line",
+    "21G": "Chennai Suburban Beach-Tambaram Line",
+    "102": "MRTS / Metro Phase 2 OMR alignment",
+    "D70": "Metro Green Line (Koyambedu to Alandur)",
+    "32B": "Suburban South Line",
+    "56A": "Suburban North Line (Central to Gummidipoondi)",
+    "62A": "Suburban West Line (Central to Arakkonam)"
+  }
+}

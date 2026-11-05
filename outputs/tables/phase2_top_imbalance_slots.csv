@@ -1,0 +1,21 @@
+route_id,hour,median_pax,median_buses,mean_load_factor,p90_pax,deployed_cap,net_passenger_gap,imbalance_ratio,problem,recommended_action
+32B,9,2434.0,18.0,1.7904837551885495,2790.0,1260.0,1174.0,1.93,Severe Passenger Deficit (Overcrowded),Inject +17 buses
+32B,10,2300.0,18.0,1.77914395696026,2613.0,1260.0,1040.0,1.83,Severe Passenger Deficit (Overcrowded),Inject +15 buses
+17D,9,2349.0,20.0,1.528150109145886,2501.0,1400.0,949.0,1.68,Severe Passenger Deficit (Overcrowded),Inject +14 buses
+32B,18,2056.0,16.0,1.7228028860536422,2260.0,1120.0,936.0,1.84,Severe Passenger Deficit (Overcrowded),Inject +14 buses
+32B,8,2186.0,18.0,1.6631553458961401,2508.0,1260.0,926.0,1.73,Severe Passenger Deficit (Overcrowded),Inject +14 buses
+14M,18,1789.0,13.0,1.9054029304029303,1924.1000000000001,910.0,879.0,1.97,Severe Passenger Deficit (Overcrowded),Inject +13 buses
+56A,18,1626.0,11.0,2.1016307975178945,1991.0,770.0,856.0,2.11,Severe Passenger Deficit (Overcrowded),Inject +13 buses
+32B,11,2087.0,18.0,1.6163233796631273,2294.0,1260.0,827.0,1.66,Severe Passenger Deficit (Overcrowded),Inject +12 buses
+17D,8,2163.0,20.0,1.4450286403597812,2387.0,1400.0,763.0,1.54,Severe Passenger Deficit (Overcrowded),Inject +11 buses
+28B,8,1951.0,17.0,1.6040651288812073,2177.0,1190.0,761.0,1.64,Severe Passenger Deficit (Overcrowded),Inject +11 buses
+202,12,128.0,12.0,0.17773400178930132,184.0,840.0,-712.0,0.15,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 4 buses to peak corridors
+202,11,154.0,12.0,0.20031775572098154,192.0,840.0,-686.0,0.18,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 4 buses to peak corridors
+202A,12,132.0,10.0,0.19951496532141694,167.0,700.0,-568.0,0.19,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 4 buses to peak corridors
+202A,13,122.0,9.0,0.1923176465111949,153.0,630.0,-508.0,0.19,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 3 buses to peak corridors
+202,14,154.0,11.0,0.2118662072694331,209.0,770.0,-616.0,0.2,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 4 buses to peak corridors
+49X,14,56.0,4.0,0.25263440860215053,98.0,280.0,-224.0,0.2,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 1 buses to peak corridors
+202A,14,127.0,9.0,0.21404469314607563,179.0,630.0,-503.0,0.2,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 3 buses to peak corridors
+101CT,11,103.0,7.0,0.19714925755248333,140.0,490.0,-387.0,0.21,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 2 buses to peak corridors
+96,15,104.0,7.0,0.24829273644941846,153.0,490.0,-386.0,0.21,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 2 buses to peak corridors
+597,15,139.0,9.0,0.24662881281544877,182.0,630.0,-491.0,0.22,Severe Vehicle Surplus (Underutilized),Withdraw/Redeploy 3 buses to peak corridors
