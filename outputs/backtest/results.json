@@ -1,22 +1,68 @@
 {
-  "forecast_mae_reduction_pct_vs_lag7d": {
-    "value": 23.0,
+  "forecast_mae_reduction_pct_vs_strongest_baseline": {
+    "value": 21.7,
     "metric": "MAE",
-    "baseline": "Lag-7d Persistence",
+    "baseline": "Route x Hour x DOW Historical Mean (50.24 pax)",
+    "model_mae": 39.35,
+    "tag": "MEASURED"
+  },
+  "forecast_mae_reduction_pct_vs_lag7d": {
+    "value": 23.1,
+    "metric": "MAE",
+    "baseline": "Lag-7d Persistence (51.16 pax)",
+    "model_mae": 39.35,
+    "tag": "MEASURED"
+  },
+  "citywide_wape_percent": {
+    "value": 18.25,
     "tag": "MEASURED"
   },
   "classifier_roc_auc_60m": {
-    "value": 0.9176,
+    "value": 0.9178,
     "tag": "MEASURED"
   },
   "classifier_pr_auc_60m": {
-    "value": 0.7811,
+    "value": 0.7816,
     "tag": "MEASURED"
   },
-  "achieved_alert_lead_time_min": {
-    "value": 60,
-    "precision": 0.587,
-    "recall": 0.8871,
+  "classifier_recall_at_60m": {
+    "value": 0.8860,
+    "tag": "MEASURED"
+  },
+  "shuffled_label_roc_auc": {
+    "value": 0.4998,
+    "interpretation": "Sanity check: no signal on shuffled labels; leakage ruled out by feature_cutoff_audit.csv",
+    "tag": "MEASURED"
+  },
+  "operational_queue_strict_precision_percent": {
+    "value": 97.2,
+    "correct_alerts": 243,
+    "total_alerts": 250,
+    "ranking": "Operational action priority (Fleet Injection -> Short-Turn Loop)",
+    "tag": "MEASURED"
+  },
+  "queue_precision_by_action_type": {
+    "fleet_injection": {
+      "precision_percent": 98.32,
+      "correct": 234,
+      "total": 238
+    },
+    "short_turn_loop": {
+      "precision_percent": 75.00,
+      "correct": 9,
+      "total": 12
+    },
+    "tag": "MEASURED"
+  },
+  "share_of_queue_alerts_on_non_chronic_routes": {
+    "priority_ordered_queue_pct": 1.20,
+    "probability_ranked_queue_pct": 44.0,
+    "tag": "MEASURED"
+  },
+  "excess_riders_covered_by_top50_pct": {
+    "value": 11.45,
+    "excess_riders_covered": 143589,
+    "total_excess_riders": 1253574,
     "tag": "MEASURED"
   },
   "natural_anomalies_flagged_in_test": {
@@ -25,37 +71,28 @@
     "anomaly_rate_percent": 1.55,
     "tag": "MEASURED"
   },
-  "headline_rebalance_route": {
-    "route_id": "15",
-    "date": "2026-03-27",
-    "hour": 18,
-    "pre_load_factor": 1.18,
-    "post_load_factor_plus1bus": 1.1,
-    "post_load_factor_plus2bus": 1.03,
+  "depot_fleet_rebalancing_simulation": {
+    "distinct_operations": 216,
+    "buses_shifted": 759,
+    "capacity_moved_seats": 53130,
+    "actual_deficit_relieved_pax": 49485,
+    "pct_receivers_reaching_target": 50.46,
+    "count_receivers_reaching_target": 109,
+    "receiver_dcr_pre_mean": 1.43,
+    "receiver_dcr_post_mean": 1.11,
+    "donor_dcr_post_mean": 0.49,
+    "donor_dcr_post_p95": 0.73,
+    "donor_dcr_post_max": 0.80,
+    "donor_protection_rule": "donors stay at or below 0.80, by design; min 60% fleet retained; single allocation",
     "tag": "SIMULATED"
   },
-  "recommendation_precision_percent": {
-    "value": 98.9,
-    "tag": "MEASURED"
-  },
-  "recommendation_operator_noise_rate_percent": {
-    "value": 1.1,
-    "tag": "MEASURED"
-  },
-  "recommendations_per_day": {
-    "value": 1235.0,
-    "tag": "MEASURED"
-  },
-  "system_throughput_events_per_sec": {
-    "value": 6355006,
-    "tag": "MEASURED"
-  },
   "batch_prediction_latency_ms": {
-    "value": 11.7,
+    "value": 138.0,
+    "slots_scored": 705,
     "tag": "MEASURED"
   },
   "process_ram_mb": {
-    "value": 478.5,
+    "value": 242.0,
     "tag": "MEASURED"
   }
 }

@@ -149,13 +149,14 @@ def get_control_room_alerts(
         return []
     
     df = pd.read_csv(queue_path)
-    if date is not None:
+    if isinstance(date, str):
         df = df[df['date'] == str(date)]
-    if hour is not None:
+    if isinstance(hour, (int, str)) and not hasattr(hour, "default"):
         df = df[df['hour'] == int(hour)]
+    actual_limit = limit.default if hasattr(limit, "default") else int(limit)
         
     alerts = []
-    for idx, r in df.head(limit).iterrows():
+    for idx, r in df.head(actual_limit).iterrows():
         rt = str(r['route_id'])
         dt = str(r['date'])
         hr = int(r['hour'])
@@ -212,13 +213,14 @@ def get_rebalance_pairs(
         return []
     
     df = pd.read_csv(pairs_path)
-    if depot is not None:
+    if isinstance(depot, str):
         df = df[df['depot'].str.contains(depot, case=False, na=False)]
-    if date is not None:
+    if isinstance(date, str):
         df = df[df['date'] == str(date)]
+    actual_limit = limit.default if hasattr(limit, "default") else int(limit)
         
     records = []
-    for idx, r in df.head(limit).iterrows():
+    for idx, r in df.head(actual_limit).iterrows():
         records.append({
             "operation_id": f"REBAL-{r['date']}-{int(r['hour']):02d}-{r['depot'][:3].upper()}-{idx+1}",
             "depot": r['depot'],
@@ -255,15 +257,16 @@ def get_routes(
     if df.empty:
         return []
     
-    if date is not None:
-        df = df[df['date'] == str(date)]
-    if hour is not None:
+    if isinstance(date, str):
+        df = df[df['date'] == date]
+    if isinstance(hour, (int, str)) and not hasattr(hour, "default"):
         df = df[df['hour'] == int(hour)]
-    if depot is not None:
+    if isinstance(depot, str):
         df = df[df['depot'].str.contains(depot, case=False, na=False)]
+    actual_limit = limit.default if hasattr(limit, "default") else int(limit)
         
     records = []
-    for idx, r in df.head(limit).iterrows():
+    for idx, r in df.head(actual_limit).iterrows():
         records.append({
             "route_id": str(r['route_id']),
             "depot": str(r.get('depot', 'Unknown')),
