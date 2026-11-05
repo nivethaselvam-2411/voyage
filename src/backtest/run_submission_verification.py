@@ -110,3 +110,4 @@ finally:
     server_proc.terminate()
     server_proc.wait(timeout=3)
     print("Test server stopped cleanly.")
+
