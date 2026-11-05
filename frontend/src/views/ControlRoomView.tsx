@@ -14,8 +14,7 @@ import {
   X,
   RotateCcw,
   SlidersHorizontal,
-  Info,
-  TrendingUp
+  Info
 } from 'lucide-react';
 
 interface ControlRoomViewProps {
@@ -30,7 +29,7 @@ export const ControlRoomView: React.FC<ControlRoomViewProps> = ({ isPanel = fals
   const [error, setError] = useState<string | null>(null);
 
   // Filter and action states
-  const [selectedDate, setSelectedDate] = useState<string>('2026-03-05');
+  const [selectedDate, setSelectedDate] = useState<string>('2026-03-27');
   const [selectedHour, setSelectedHour] = useState<number>(9);
   const [selectedDepot, setSelectedDepot] = useState<string>('all');
   const [actionStates, setActionStates] = useState<Record<string, 'accepted' | 'dismissed'>>({});
@@ -157,6 +156,11 @@ export const ControlRoomView: React.FC<ControlRoomViewProps> = ({ isPanel = fals
                 </option>
               ))}
             </select>
+            {hourlySummary[String(selectedHour)] && (
+              <span style={{ fontSize: '11px', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
+                ({hourlySummary[String(selectedHour)].overcrowded_routes} bottlenecks)
+              </span>
+            )}
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

@@ -466,11 +466,11 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                     {manifest?.depots?.map((d: DatasetDepot, idx: number) => (
                       <tr key={idx}>
                         <td style={{ fontWeight: 700 }}>{d.name}</td>
-                        <td style={{ fontFamily: 'var(--font-mono)' }}>{d.code}</td>
-                        <td style={{ fontFamily: 'var(--font-mono)' }}>{d.buses_estimated} buses</td>
+                        <td style={{ fontFamily: 'var(--font-mono)' }}>{d.code ?? 'DEP'}</td>
+                        <td style={{ fontFamily: 'var(--font-mono)' }}>{d.buses_estimated ?? d.routes ?? 0} {d.buses_estimated ? 'buses' : 'routes'}</td>
                         <td>
                           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                            {d.primary_routes.map((r: string) => (
+                            {(d.primary_routes ?? d.sample_routes ?? []).map((r: string) => (
                               <span
                                 key={r}
                                 style={{
