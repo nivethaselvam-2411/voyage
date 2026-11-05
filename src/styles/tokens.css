@@ -1,0 +1,75 @@
+/* TransitIQ Design System Tokens
+   Strict design rules:
+   - Palette: sky #E8EFF5 page, cream #F4ECD8 panels, ink #1F2630 text, one accent orange #E8692A.
+   - Status colours used ONLY for DCR:
+       green <= 0.85, amber 0.85-1.0, red > 1.0, blue (donor/surplus) <= 0.40.
+   - Headings in Georgia, body in Inter. Sentence case everywhere.
+   - No gradients, glassmorphism, glow, neon, emoji, purple, or big soft shadows.
+   - 1px hairline borders, flat fills, generous whitespace, strict 8px grid.
+*/
+
+:root {
+  /* Palette */
+  --color-page: #E8EFF5;
+  --color-panel: #F4ECD8;
+  --color-panel-light: #FAF6ED;
+  --color-panel-contrast: #EAE0C7;
+  --color-ink: #1F2630;
+  --color-ink-muted: #5A6472;
+  --color-ink-subtle: #8792A2;
+  --color-accent-orange: #E8692A;
+  --color-accent-hover: #D0581C;
+
+  /* Hairline Borders */
+  --border-hairline: 1px solid #D1DCE5;
+  --border-panel: 1px solid #DFD5BD;
+  --border-dark: 1px solid #1F2630;
+  --border-subtle: 1px solid rgba(31, 38, 48, 0.12);
+
+  /* DCR Status Colours (ONLY used for DCR) */
+  --dcr-green: #2E7D32;       /* DCR <= 0.85 */
+  --dcr-green-bg: #E8F5E9;
+  --dcr-amber: #D97706;       /* DCR 0.85 - 1.0 */
+  --dcr-amber-bg: #FEF3C7;
+  --dcr-red: #C53030;         /* DCR > 1.0 (over capacity) */
+  --dcr-red-bg: #FEE2E2;
+  --dcr-blue: #2563EB;        /* DCR <= 0.40 (donor/surplus) */
+  --dcr-blue-bg: #DBEAFE;
+
+  /* Typography */
+  --font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, Monaco, monospace;
+
+  /* 8px Grid Spacing */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  /* Radii - strictly minimal / rectangular */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Motion */
+  --transition-speed: 200ms;
+  --transition-slide: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-speed: 0ms;
+    --transition-slide: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

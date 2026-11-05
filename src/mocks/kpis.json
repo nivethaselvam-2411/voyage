@@ -1,0 +1,20 @@
+{
+  "mae_percent": 21.6,
+  "mape_description": "21.6% mean absolute percentage error on holdout test set (days 27–31)",
+  "anomalies_flagged": 1347,
+  "anomaly_description": "Route-hours where boardings exceeded Q3 + 2×IQR threshold (2645 pax)",
+  "total_etm_tickets_sampled": 10846870,
+  "total_passengers_sampled": 12310289,
+  "etm_days_processed": 5,
+  "estimated_monthly_passengers": 76300000,
+  "women_ticket_percent": 51.9,
+  "active_routes_in_dataset": 945,
+  "overcrowded_routes_at_peak": 586,
+  "avg_dcr_at_peak_hour": 1.792,
+  "peak_hour": 9,
+  "depots_count": 33,
+  "bus_stops_count": 2717,
+  "rebalancing_pairs_identified": 15,
+  "type": "MEASURED",
+  "data_source": "CUMTA Theme 4 ETM — March 2026 (days 1–5)"
+}

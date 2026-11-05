@@ -1,0 +1,138 @@
+{
+  "6": {
+    "hour": 6,
+    "total_routes": 945,
+    "overcrowded_routes": 369,
+    "critical_routes": 280,
+    "avg_dcr": 1.104,
+    "total_boardings": 108748
+  },
+  "7": {
+    "hour": 7,
+    "total_routes": 945,
+    "overcrowded_routes": 482,
+    "critical_routes": 371,
+    "avg_dcr": 1.472,
+    "total_boardings": 162584
+  },
+  "8": {
+    "hour": 8,
+    "total_routes": 945,
+    "overcrowded_routes": 537,
+    "critical_routes": 435,
+    "avg_dcr": 1.712,
+    "total_boardings": 201862
+  },
+  "9": {
+    "hour": 9,
+    "total_routes": 945,
+    "overcrowded_routes": 549,
+    "critical_routes": 423,
+    "avg_dcr": 1.686,
+    "total_boardings": 200728
+  },
+  "10": {
+    "hour": 10,
+    "total_routes": 945,
+    "overcrowded_routes": 451,
+    "critical_routes": 356,
+    "avg_dcr": 1.408,
+    "total_boardings": 163951
+  },
+  "11": {
+    "hour": 11,
+    "total_routes": 945,
+    "overcrowded_routes": 420,
+    "critical_routes": 324,
+    "avg_dcr": 1.296,
+    "total_boardings": 147420
+  },
+  "12": {
+    "hour": 12,
+    "total_routes": 945,
+    "overcrowded_routes": 403,
+    "critical_routes": 307,
+    "avg_dcr": 1.227,
+    "total_boardings": 138494
+  },
+  "13": {
+    "hour": 13,
+    "total_routes": 945,
+    "overcrowded_routes": 381,
+    "critical_routes": 284,
+    "avg_dcr": 1.135,
+    "total_boardings": 128192
+  },
+  "14": {
+    "hour": 14,
+    "total_routes": 945,
+    "overcrowded_routes": 400,
+    "critical_routes": 302,
+    "avg_dcr": 1.179,
+    "total_boardings": 134433
+  },
+  "15": {
+    "hour": 15,
+    "total_routes": 945,
+    "overcrowded_routes": 403,
+    "critical_routes": 306,
+    "avg_dcr": 1.198,
+    "total_boardings": 141242
+  },
+  "16": {
+    "hour": 16,
+    "total_routes": 945,
+    "overcrowded_routes": 433,
+    "critical_routes": 318,
+    "avg_dcr": 1.287,
+    "total_boardings": 153418
+  },
+  "17": {
+    "hour": 17,
+    "total_routes": 945,
+    "overcrowded_routes": 485,
+    "critical_routes": 361,
+    "avg_dcr": 1.408,
+    "total_boardings": 169409
+  },
+  "18": {
+    "hour": 18,
+    "total_routes": 945,
+    "overcrowded_routes": 518,
+    "critical_routes": 399,
+    "avg_dcr": 1.516,
+    "total_boardings": 185531
+  },
+  "19": {
+    "hour": 19,
+    "total_routes": 945,
+    "overcrowded_routes": 440,
+    "critical_routes": 325,
+    "avg_dcr": 1.288,
+    "total_boardings": 152003
+  },
+  "20": {
+    "hour": 20,
+    "total_routes": 945,
+    "overcrowded_routes": 349,
+    "critical_routes": 257,
+    "avg_dcr": 1.043,
+    "total_boardings": 115660
+  },
+  "21": {
+    "hour": 21,
+    "total_routes": 945,
+    "overcrowded_routes": 247,
+    "critical_routes": 176,
+    "avg_dcr": 0.787,
+    "total_boardings": 72031
+  },
+  "22": {
+    "hour": 22,
+    "total_routes": 945,
+    "overcrowded_routes": 174,
+    "critical_routes": 103,
+    "avg_dcr": 0.6,
+    "total_boardings": 27412
+  }
+}
