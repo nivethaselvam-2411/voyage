@@ -31,8 +31,8 @@ All numbers below are verified against the out-of-time test set (March 27–31, 
 5. **Depot-Constrained Fleet Rebalancing (Separate Counterfactual Simulation):**
    - **`216` Distinct Rebalancing Operations** across 16 depots over 5 test days (`SIMULATED`).
    - *Total Fleet Transferred:* **759 buses** (Mean: 3.51 buses/pair).
-   - *Total Capacity Moved:* **53,130 passenger-seats** (`SIMULATED`).
-   - *Actual Passenger Deficit Relieved:* **49,485 passengers** (`SIMULATED`).
+   - *Total Capacity Moved (pax):* **53,130 passenger-seats** (`SIMULATED`).
+   - *Actual Passenger Reduction:* **49,485 passengers** (`SIMULATED`).
    - *Overcrowded Receivers:* Mean DCR reduced from **1.43x down to 1.11x** (Median: **1.42x to 1.00x**).
    - *Complete Normalization:* **50.46% of overcrowded receivers (109 of 216)** brought to $\text{DCR} \le 1.0\text{x}$.
    - *Donor Route Protection:* Donors stay **at or below 0.80x DCR, by design** (Post-transfer donor mean DCR = 0.49x, p95 = 0.73x, max = 0.80x; minimum 60% fleet retained).

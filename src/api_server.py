@@ -27,7 +27,7 @@ DEMO_MODE = os.environ.get("DEMO_MODE", "1") == "1"
 
 app = FastAPI(
     title="TransitIQ Predictive Transit Dispatch API",
-    description="Real-time ETM predictive dispatch and depot rebalancing engine for urban bus networks.",
+    description="Replay-mode demo ETM predictive dispatch and depot rebalancing engine for urban bus networks.",
     version="2.1.0"
 )
 
@@ -35,7 +35,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -61,7 +61,7 @@ def get_cached_routes_df():
 def root():
     return {
         "status": "online",
-        "service": "TransitIQ Predictive Transit Dispatch API",
+        "service": "TransitIQ Predictive Transit Dispatch API (Replay-mode demo)",
         "demo_mode": DEMO_MODE,
         "telemetry_source": "67.8M ETM Telemetry Replay Feed (March 2026)",
         "endpoints": [
@@ -104,6 +104,8 @@ def get_kpis():
             "fleet_injection_count": 238,
             "short_turn_precision": 75.00,
             "short_turn_count": 12,
+            "historical_recurrence_baseline_precision_percent": 53.20,
+            "historical_recurrence_baseline_description": "Top 50/day by historical recurrence >=70% (Route daily recurrence)",
             "excess_riders_addressed_pax": 143589,
             "excess_riders_share_percent": 11.45,
             "share_of_queue_alerts_on_non_chronic_routes": 1.20,
@@ -114,7 +116,7 @@ def get_kpis():
             "unique_operations_count": 216,
             "total_fleet_transferred": 759,
             "total_capacity_moved_pax": 53130,
-            "total_actual_passenger_deficit_relieved": 49485,
+            "total_actual_passenger_reduction": 49485,
             "receiver_pre_dcr_mean": 1.43,
             "receiver_post_dcr_mean": 1.11,
             "donor_pre_dcr_mean": 0.35,
@@ -164,8 +166,10 @@ def get_control_room_alerts(
         defic = int(r['pred_deficit'])
         cat = str(r['action_category'])
         prio = int(r['priority'])
-        buses = int(r.get('active_buses', 0))
-        pax = int(r.get('pax', 0))
+        planned_buses = int(r.get('ex_ante_planned_buses', r.get('active_buses', 0)))
+        planned_cap = planned_buses * 70
+        pred_pax = int(r.get('pred_pax', r.get('pax', 0)))
+        active_buses_obs = int(r.get('active_buses', 0))
         depot_name = str(r.get('depot', 'Operating Depot'))
         
         if cat == 'Fleet Injection':
@@ -174,6 +178,7 @@ def get_control_room_alerts(
             reason = f"Route {rt} projected at {p_dcr:.2f}x Demand-to-Capacity Ratio (+{defic} passenger deficit)."
             impact = f"Decompresses corridor towards 1.0x capacity limit before departure."
         else:
+            needed_buses = 0
             action_text = f"Priority 2: Short-Turn Loop at Major Midpoint Terminal"
             reason = f"Route {rt} projected at {p_dcr:.2f}x DCR with headway clustering."
             impact = f"Turns trailing bus early to clear passenger queue at bottleneck corridor."
@@ -187,13 +192,16 @@ def get_control_room_alerts(
             "time_window": f"{hr:02d}:00 - {hr+1:02d}:00",
             "priority": prio,
             "action_category": cat,
+            "planned_buses": planned_buses,
+            "planned_capacity_seats": planned_cap,
+            "predicted_pax": pred_pax,
             "predicted_dcr": round(p_dcr, 2),
             "predicted_deficit_pax": defic,
-            "predicted_pax": int(r.get('pred_pax', pax)),
-            "active_buses": buses,
+            "reserve_buses_needed": needed_buses,
             "recommended_action": action_text,
             "operational_reason": reason,
             "expected_impact": impact,
+            "observed_active_buses_ex_post": active_buses_obs,
             "verified_same_hour_overcrowded": bool(r['ground_truth_dcr'] > 1.0)
         })
     return alerts

@@ -71,14 +71,15 @@ All metrics are evaluated on the **5-day out-of-time test set (March 27–31, 20
 | **Early Warning** | **ROC-AUC** | **0.9178** | High discrimination on capacity deficits | `[MEASURED]` |
 | **Early Warning** | **PR-AUC** | **0.7816** | Precision-recall area under acute class imbalance | `[MEASURED]` |
 | **Dispatch Reliability**| **Priority Queue Precision** | **97.20%** | **243 of 250** daily priority actions verified true DCR > 1.0 | `[MEASURED]` |
+| **Dispatch Reliability**| **Historical Recurrence Baseline** | **53.20%** | Top 50/day by historical recurrence $\ge 70\%$ (133 of 250 verified) | `[BASELINE]` |
 | **Dispatch Reliability**| **Fleet Injection Precision** | **98.32%** | Priority 1 actions (234 of 238 verified true capacity deficits) | `[MEASURED]` |
 | **Dispatch Reliability**| **Short-Turn Precision** | **75.00%** | Priority 2 actions (based on a sample of 12 actions) | `[MEASURED]` |
 | **Queue Coverage** | **Share on Non-Chronic Routes**| **1.20%** | 3 of 250 priority queue alerts (vs 44.0% when ranked by probability)| `[MEASURED]` |
 | **System Relief** | **Citywide Excess Riders** | **11.45%** | **143,589 excess passengers** addressed by 50 actions/day (< 0.44% slots)| `[MEASURED]` |
 | **Depot Rebalancing** | **Single-Allocation Ops** | **216 ops** | Total 1-to-1 depot-constrained rebalancing dispatches across 5 days | `[SIMULATED]` |
 | **Depot Rebalancing** | **Buses Transferred** | **759 buses** | Mean: 3.51 buses transferred per operation | `[SIMULATED]` |
-| **Depot Rebalancing** | **Capacity Moved** | **53,130 seats** | Total passenger-capacity moved across 5 test days | `[SIMULATED]` |
-| **Depot Rebalancing** | **Deficit Relieved** | **49,485 pax** | Actual excess passenger load relieved | `[SIMULATED]` |
+| **Depot Rebalancing** | **Capacity moved (pax)** | **53,130 seats** | Total passenger-capacity moved across 5 test days ($k \times 70$) | `[SIMULATED]` |
+| **Depot Rebalancing** | **Actual passenger reduction** | **49,485 pax** | Actual excess passenger load relieved ($\Delta \text{Deficit}$) | `[SIMULATED]` |
 | **Depot Rebalancing** | **Receivers Normalized** | **50.46%** | **109 of 216** overcrowded receivers brought to DCR $\le 1.0\text{x}$ | `[SIMULATED]` |
 | **Depot Rebalancing** | **Donor DCR Protection** | **Mean 0.49x** | Donors stay **at or below 0.80x DCR, by design** (p95: 0.73x, max: 0.80x) | `[SIMULATED]` |
 | **Sanity Audit** | **Label Shuffling Test** | **AUC = 0.5492** | Sanity check: no signal on shuffled labels; leakage ruled out by `feature_cutoff_audit.csv` | `[MEASURED]` |

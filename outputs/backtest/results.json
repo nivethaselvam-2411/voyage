@@ -41,6 +41,13 @@
     "ranking": "Operational action priority (Fleet Injection -> Short-Turn Loop)",
     "tag": "MEASURED"
   },
+  "historical_recurrence_baseline": {
+    "queue_policy": "Top 50/day by historical recurrence >= 70% (Route daily recurrence)",
+    "strict_precision_percent": 53.2,
+    "correct_alerts": 133,
+    "total_alerts": 250,
+    "tag": "BASELINE"
+  },
   "queue_precision_by_action_type": {
     "fleet_injection": {
       "precision_percent": 98.32,
@@ -74,8 +81,8 @@
   "depot_fleet_rebalancing_simulation": {
     "distinct_operations": 216,
     "buses_shifted": 759,
-    "capacity_moved_seats": 53130,
-    "actual_deficit_relieved_pax": 49485,
+    "capacity_moved_pax": 53130,
+    "actual_passenger_reduction": 49485,
     "pct_receivers_reaching_target": 50.46,
     "count_receivers_reaching_target": 109,
     "receiver_dcr_pre_mean": 1.43,
