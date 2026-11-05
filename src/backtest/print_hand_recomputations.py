@@ -54,3 +54,4 @@ for i, r in sample.iterrows():
     print(f"  capacity moved (pax)       = {k} * 70 = {cap_moved:.0f} seats  [CSV capacity_moved_pax = {r['capacity_moved_pax']:.0f}] -> EXACT MATCH")
     print(f"  actual passenger reduction = max(0, {pax_r:.1f} - {cap_before:.0f}) - max(0, {pax_r:.1f} - {cap_after:.0f}) = {act_red:.0f} pax  [CSV actual_passenger_reduction = {r['actual_passenger_reduction']:.0f}] -> EXACT MATCH")
     print()
+

@@ -119,3 +119,4 @@ print(f"Total observed passenger reduction (actual): {df_single['observed_passen
 print(f"Receiver pre-DCR: Mean {df_single['pre_dcr_rec'].mean():.2f}x (Median: {df_single['pre_dcr_rec'].median():.2f}x)")
 print(f"Receiver post-DCR: Mean {df_single['post_dcr_rec'].mean():.2f}x (Median: {df_single['post_dcr_rec'].median():.2f}x)")
 print(f"Donor post-DCR: Mean {df_single['post_dcr_don'].mean():.2f}x (p95: {df_single['post_dcr_don'].quantile(0.95):.2f}x, max: {df_single['post_dcr_don'].max():.2f}x)")
+

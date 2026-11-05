@@ -77,3 +77,4 @@ finally:
     server_proc.terminate()
     server_proc.wait(timeout=5)
     print("Server stopped cleanly.")
+
