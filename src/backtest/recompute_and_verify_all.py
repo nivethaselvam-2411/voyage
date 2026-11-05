@@ -1,5 +1,5 @@
 """
-TransitIQ: Recompute and Verify All Assets
+Marina Sentinel: Recompute and Verify All Assets
 - Generates outputs/demo/route_hour_predictions.csv.gz (56,781 test slots)
 - Verifies single-allocation rebalancing pairs with full raw fields
 - Checks formulas for Top 3 and 20 random pairs

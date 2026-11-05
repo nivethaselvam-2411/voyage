@@ -1,5 +1,5 @@
 """
-TransitIQ: Clean Checkout & Standalone Reproduction Test
+Marina Sentinel: Clean Checkout & Standalone Reproduction Test
 1. Verifies git staging and commits clean repository files.
 2. Exports a 100% clean, isolated checkout via `git checkout-index`.
 3. Asserts zero raw data files (data/, ETM/, *.parquet, *.bz2) exist in the export.
@@ -13,7 +13,7 @@ import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
-temp_export_dir = Path(tempfile.gettempdir()) / "transitiq_clean_export_eval"
+temp_export_dir = Path(tempfile.gettempdir()) / "marina_sentinel_clean_export_eval"
 
 if temp_export_dir.exists():
     shutil.rmtree(temp_export_dir, ignore_errors=True)
@@ -23,11 +23,11 @@ print("Step 1: Staging tracked files in Git...")
 subprocess.run(["git", "add", "."], cwd=ROOT, check=True)
 
 # Ensure git user config
-subprocess.run(["git", "config", "user.name", "TransitIQ Submitter"], cwd=ROOT, check=True)
-subprocess.run(["git", "config", "user.email", "submitter@transitiq.local"], cwd=ROOT, check=True)
+subprocess.run(["git", "config", "user.name", "Marina Sentinel Submitter"], cwd=ROOT, check=True)
+subprocess.run(["git", "config", "user.email", "submitter@marinasentinel.local"], cwd=ROOT, check=True)
 
 try:
-    subprocess.run(["git", "commit", "-m", "feat: TransitIQ complete submission release"], cwd=ROOT, check=True)
+    subprocess.run(["git", "commit", "-m", "feat: Marina Sentinel complete submission release"], cwd=ROOT, check=True)
     print("Git commit created.")
 except subprocess.CalledProcessError:
     print("Working tree already committed.")

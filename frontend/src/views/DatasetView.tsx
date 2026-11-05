@@ -255,7 +255,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                         <th>Format</th>
                         <th>Size</th>
                         <th>Record Count</th>
-                        <th>Operational Role in TransitIQ</th>
+                        <th>Operational Role in Marina Sentinel</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -307,7 +307,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                       Raw Electronic Ticketing Machine (ETM) Transaction Telemetry
                     </h3>
                     <p style={{ fontSize: '13px', color: 'var(--color-ink-muted)', marginTop: '2px' }}>
-                      Exact transactional packets extracted from <code>Ticket-Data-2026-03-01.csv.bz2</code>. TransitIQ transforms these into 60-min corridor boardings and DCR.
+                      Exact transactional packets extracted from <code>Ticket-Data-2026-03-01.csv.bz2</code>. Marina Sentinel transforms these into 60-min corridor boardings and DCR.
                     </p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>

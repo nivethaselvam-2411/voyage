@@ -1,5 +1,5 @@
 """
-TransitIQ: Organiser Data Profile & Forensic Sanity Report
+Marina Sentinel: Organiser Data Profile & Forensic Sanity Report
 Generates profile.md evaluating raw/clean ETM dataset integrity,
 concessions, OD stages, physical sanity, and baseline comparisons.
 """
@@ -36,7 +36,7 @@ t_stats['pax_share_pct'] = (t_stats['total_pax'] / t_stats['total_pax'].sum()) *
 s_stats = df_sample['service_type'].value_counts(normalize=True) * 100.0
 
 # Generate Markdown Profile
-profile_content = f"""# TransitIQ: Organiser Dataset Profile & Validation Report
+profile_content = f"""# Marina Sentinel: Organiser Dataset Profile & Validation Report
 
 **Scope:** 31 Days (2026-03-01 to 2026-03-31) | 3,454 Active Buses | 705 Routes | 16 Depots  
 **Total Records Analyzed:** ~67.8 Million ETM Ticket Transactions (349,799 Route-Hour Slots)  

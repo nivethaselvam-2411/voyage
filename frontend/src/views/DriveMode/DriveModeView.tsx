@@ -197,7 +197,7 @@ export const DriveModeView: React.FC = () => {
             backdropFilter: 'none' // Strict design rule: no glassmorphism
           }}
           role="dialog"
-          aria-label="Welcome to TransitIQ Drive Mode"
+          aria-label="Welcome to Marina Sentinel Drive Mode"
         >
           <div
             style={{
@@ -342,7 +342,7 @@ export const DriveModeView: React.FC = () => {
           }}
         >
           <span style={{ fontFamily: 'var(--font-serif)', fontSize: '18px', color: 'var(--color-ink)' }}>
-            TransitIQ
+            Marina Sentinel
           </span>
           <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--color-accent-orange)', fontWeight: 600 }}>
             Drive Mode

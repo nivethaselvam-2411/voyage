@@ -1,5 +1,5 @@
 """
-TransitIQ Backend REST API Server
+Marina Sentinel Backend REST API Server
 Provides production and demo-ready endpoints for the Frontend.
 Supports DEMO_MODE=1 to run strictly on precomputed outputs with zero raw data dependencies.
 
@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEMO_MODE = os.environ.get("DEMO_MODE", "1") == "1"
 
 app = FastAPI(
-    title="TransitIQ Predictive Transit Dispatch API",
+    title="Marina Sentinel Predictive Transit Dispatch API",
     description="Replay-mode demo ETM predictive dispatch and depot rebalancing engine for urban bus networks.",
     version="2.1.0"
 )
@@ -65,7 +65,7 @@ def get_cached_routes_df():
 def root():
     return {
         "status": "online",
-        "service": "TransitIQ Predictive Transit Dispatch API (Replay-mode demo)",
+        "service": "Marina Sentinel Predictive Transit Dispatch API (Replay-mode demo)",
         "demo_mode": DEMO_MODE,
         "telemetry_source": "67.8M ETM Telemetry Replay Feed (March 2026)",
         "endpoints": [
@@ -465,7 +465,7 @@ def get_dashboard():
             "city": "Chennai",
             "operator": "Metropolitan Transport Corporation (MTC)",
             "telemetry_source": "67.8M ETM Ticket Logs Replay Feed",
-            "model_version": "TransitIQ Dual XGBoost (60-Min Strict Ex-Ante)",
+            "model_version": "Marina Sentinel Dual XGBoost (60-Min Strict Ex-Ante)",
             "status": "Operational",
             "demo_mode": DEMO_MODE
         },
@@ -475,5 +475,5 @@ def get_dashboard():
     }
 
 if __name__ == "__main__":
-    print(f"Starting TransitIQ REST API Server (DEMO_MODE={DEMO_MODE}) on http://localhost:8000 ...")
+    print(f"Starting Marina Sentinel REST API Server (DEMO_MODE={DEMO_MODE}) on http://localhost:8000 ...")
     uvicorn.run("api_server:app", host="0.0.0.0", port=8000, reload=False, app_dir=str(ROOT / "src"))

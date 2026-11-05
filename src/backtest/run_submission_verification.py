@@ -1,5 +1,5 @@
 """
-TransitIQ: Submission Verification Script (Tasks 8 & 9)
+Marina Sentinel: Submission Verification Script (Tasks 8 & 9)
 - Stages and commits all files to Git
 - Runs git count-objects -vH
 - Lists largest 10 files in Git tracking

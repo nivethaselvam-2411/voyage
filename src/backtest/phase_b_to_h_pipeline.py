@@ -1,5 +1,5 @@
 """
-TransitIQ Senior ML Evaluator — FULL SYSTEM BACKTEST (Phases B through H)
+Marina Sentinel Senior ML Evaluator — FULL SYSTEM BACKTEST (Phases B through H)
 Authors: Senior ML Evaluator
 Workspace: c:/Users/nivet/Downloads/Theme 4/Theme 4
 
@@ -406,7 +406,7 @@ def run_phases_b_to_h():
     ax.plot([r['Median_Achieved_Lead_Min'] for r in alert_records], [r['Precision'] for r in alert_records], 's--', color='#2980b9', lw=2.5, label='Precision (Alert Reliability)')
     ax.set_xlabel('Alert Lead Time (Minutes Prior to Slot Start)', fontsize=11)
     ax.set_ylabel('Score (0.0 to 1.0)', fontsize=11)
-    ax.set_title('TransitIQ Early Warning System: Precision & Recall vs Lead Time', fontsize=12, fontweight='bold')
+    ax.set_title('Marina Sentinel Early Warning System: Precision & Recall vs Lead Time', fontsize=12, fontweight='bold')
     ax.set_xticks([15, 30, 45, 60])
     ax.set_ylim(0.4, 1.0)
     ax.legend(loc='lower left', frameon=True)
@@ -818,7 +818,7 @@ def run_phases_b_to_h():
     print(f"  Saved {RESULTS_JSON}")
 
     # 2. slide_numbers.md
-    slide_content = f"""# TransitIQ Pitch Slide Numbers & Deck Placeholders
+    slide_content = f"""# Marina Sentinel Pitch Slide Numbers & Deck Placeholders
 All numbers below are verified against the out-of-time test set (March 27–31, 2026).
 
 ---
@@ -871,7 +871,7 @@ All numbers below are verified against the out-of-time test set (March 27–31, 
     print(f"  Saved {SLIDES_MD}")
 
     # 3. backtest_report.md
-    report_content = f"""# TransitIQ Full System Backtest Report
+    report_content = f"""# Marina Sentinel Full System Backtest Report
 **Role:** Senior ML Evaluator  
 **Evaluation Standard:** Strict Out-of-Time Chronological Validation (Train: Mar 8–21, Val: Mar 22–26, Test: Mar 27–31, 2026)  
 **Execution Date:** {pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')}  
@@ -879,7 +879,7 @@ All numbers below are verified against the out-of-time test set (March 27–31, 
 ---
 
 ## Executive Summary
-This report presents the rigorous backtest of the TransitIQ predictive transit operations engine on 31 days of Chennai Metropolitan Transport Corporation (MTC) ETM data (67.8M clean tickets).
+This report presents the rigorous backtest of the Marina Sentinel predictive transit operations engine on 31 days of Chennai Metropolitan Transport Corporation (MTC) ETM data (67.8M clean tickets).
 
 All models were evaluated under strict ex-ante operational constraints:
 - **Zero Future Telemetry:** Target-hour active buses and deployed capacity were completely eliminated from feature inputs.

@@ -322,7 +322,7 @@ export const ScorecardView: React.FC<ScorecardViewProps> = ({ isPanel = false })
             </div>
 
             <p style={{ fontSize: '13px', color: 'var(--color-ink-muted)' }}>
-              TransitIQ is an operational recommendation engine designed for control-room operators. The following boundaries govern current predictions and simulation outputs:
+              Marina Sentinel is an operational recommendation engine designed for control-room operators. The following boundaries govern current predictions and simulation outputs:
             </p>
 
             <div

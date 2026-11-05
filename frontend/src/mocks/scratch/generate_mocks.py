@@ -2,7 +2,7 @@
 generate_mocks.py
 =================
 Processes CUMTA Theme 4 dataset → produces all JSON mock files for the
-TransitIQ frontend.
+TransitIQ frontend. -> Marina Sentinel frontend.
 
 Reads:
   • ETM bz2 files  (days 01-05, ~March 2026)

@@ -1,5 +1,5 @@
 """
-TransitIQ: Script to answer User Follow-up Checks 3
+Marina Sentinel: Script to answer User Follow-up Checks 3
 1. Audit features: newest timestamp relative to START of target slot.
 2. Define ONE strict-precision rule (DCR > 1.0 same hour) and recompute recommendation precision.
 3. Severe tier (DCR >= 1.5): prevalence, top-50 precision and recall.

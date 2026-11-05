@@ -1,4 +1,4 @@
-# TransitIQ Full System Backtest Report
+# Marina Sentinel Full System Backtest Report
 **Role:** Senior ML Evaluator  
 **Evaluation Standard:** Strict Out-of-Time Chronological Validation (Train: Mar 8–21, Val: Mar 22–26, Test: Mar 27–31, 2026)  
 **Execution Date:** 2026-11-05 18:20:16  
@@ -6,7 +6,7 @@
 ---
 
 ## Executive Summary
-This report presents the rigorous backtest of the TransitIQ predictive transit operations engine on 31 days of Chennai Metropolitan Transport Corporation (MTC) ETM data (67.8M clean tickets).
+This report presents the rigorous backtest of the Marina Sentinel predictive transit operations engine on 31 days of Chennai Metropolitan Transport Corporation (MTC) ETM data (67.8M clean tickets).
 
 All models were evaluated under strict ex-ante operational constraints:
 - **Zero Future Telemetry:** Target-hour active buses and deployed capacity were completely eliminated from feature inputs.

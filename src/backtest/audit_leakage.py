@@ -1,5 +1,5 @@
 """
-TransitIQ Senior ML Evaluation — PHASE A: LEAKAGE AUDIT & INTEGRITY CHECK
+Marina Sentinel Senior ML Evaluation — PHASE A: LEAKAGE AUDIT & INTEGRITY CHECK
 Authors: Senior ML Evaluator
 Workspace: c:/Users/nivet/Downloads/Theme 4/Theme 4
 
@@ -84,7 +84,7 @@ def run_phase_a():
     t0 = time.time()
 
     log_lines = []
-    log_lines.append("# TransitIQ Full System Backtest — Phase A: Leakage Audit Log\n")
+    log_lines.append("# Marina Sentinel Full System Backtest — Phase A: Leakage Audit Log\n")
     log_lines.append(f"**Execution Timestamp:** {pd.Timestamp.now()}\n")
     log_lines.append(f"**Evaluator Role:** Senior ML Evaluator\n\n")
 

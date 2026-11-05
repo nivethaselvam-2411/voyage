@@ -1,5 +1,5 @@
 """
-TransitIQ: Script to answer User Follow-up Checks 4
+Marina Sentinel: Script to answer User Follow-up Checks 4
 1. Print final feature list and re-report MAE, WAPE, R2, ROC-AUC and PR-AUC on TEST.
 2. Recompute recommendation precision by action type on the capped 50/day queue under the DCR > 1.0 rule.
 3. Reconcile 420 vs 422 pairs, analyze donor re-use per depot-date-hour, and re-run transfers with each donor's buses allocated once.

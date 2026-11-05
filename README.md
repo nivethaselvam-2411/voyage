@@ -1,6 +1,6 @@
-# TransitIQ — Chennai MTC Control-Room Copilot
+# Marina Sentinel — Chennai MTC Control-Room Copilot
 
-TransitIQ is a 60-minute ex-ante corridor overcrowding prediction and operational copilot designed specifically for control-room operators managing Chennai's Metropolitan Transport Corporation (MTC) bus network.
+Marina Sentinel is a 60-minute ex-ante corridor overcrowding prediction and operational copilot designed specifically for control-room operators managing Chennai's Metropolitan Transport Corporation (MTC) bus network.
 
 ---
 

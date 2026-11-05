@@ -1,4 +1,4 @@
-# TransitIQ Full System Backtest — Phase A: Leakage Audit Log
+# Marina Sentinel Full System Backtest — Phase A: Leakage Audit Log
 **Execution Timestamp:** 2026-11-05 18:19:07.003426
 **Evaluator Role:** Senior ML Evaluator
 

@@ -1,5 +1,5 @@
 """
-TransitIQ: Generate Reconciled Master Jury Scorecard Image
+Marina Sentinel: Generate Reconciled Master Jury Scorecard Image
 Synchronized with Final Audited Pitch Numbers.
 """
 import os
@@ -40,7 +40,7 @@ LIGHT_BG = '#F1F5F9'
 # ──────────────────────────────────────────────────────────────────────────────
 ax1 = fig.add_subplot(gs[0, 0])
 ax1.set_facecolor('white')
-models = ['Prev-Week Persistence\n(Lag-7d Baseline)', 'Train Schedule Mean\n(Strongest Baseline)', 'TransitIQ ML\n(60-Min Ex-Ante)']
+models = ['Prev-Week Persistence\n(Lag-7d Baseline)', 'Train Schedule Mean\n(Strongest Baseline)', 'Marina Sentinel ML\n(60-Min Ex-Ante)']
 mae_vals = [51.16, 50.24, 39.35]
 wape_vals = [23.72, 23.30, 18.25]
 

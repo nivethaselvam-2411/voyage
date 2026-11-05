@@ -76,7 +76,7 @@ export const BusModel: React.FC<BusModelProps> = ({ headlightsOn = true }) => {
         <meshBasicMaterial color={headlightsOn ? '#FFF8D6' : '#C4D0DB'} />
       </mesh>
 
-      {/* 10. Front Route Display Board (MTC TransitIQ) */}
+      {/* 10. Front Route Display Board (MTC Marina Sentinel) */}
       <mesh position={[0, 1.95, 2.15]}>
         <boxGeometry args={[1.2, 0.18, 0.05]} />
         <meshBasicMaterial color="#1F2630" />

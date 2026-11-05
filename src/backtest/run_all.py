@@ -1,5 +1,5 @@
 """
-TransitIQ Full System Backtest Runner
+Marina Sentinel Full System Backtest Runner
 Command: python -m src.backtest.run_all
 Runs all phases A through H sequentially and generates all reports.
 """

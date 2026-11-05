@@ -56,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ alertCount }) => {
                 letterSpacing: '-0.01em'
               }}
             >
-              TransitIQ
+              Marina Sentinel
             </span>
             <span
               style={{
