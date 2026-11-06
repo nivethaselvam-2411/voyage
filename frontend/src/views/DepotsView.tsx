@@ -175,12 +175,31 @@ export const DepotsView: React.FC<DepotsViewProps> = ({ isPanel = false }) => {
           style={{
             display: 'grid',
             gridTemplateColumns: isPanel ? '1fr' : 'minmax(300px, 380px) 1fr',
-            gap: '24px'
+            gap: '24px',
+            alignItems: 'start'
           }}
         >
           {/* Pair Selection List */}
-          <section aria-label="Available rebalance pairs">
-            <h2 style={{ fontSize: '16px', marginBottom: '12px', color: 'var(--color-ink)' }}>
+          <section
+            aria-label="Available rebalance pairs"
+            style={{
+              maxHeight: isPanel ? 'none' : 'calc(100vh - 180px)',
+              overflowY: isPanel ? 'visible' : 'auto',
+              paddingRight: '8px'
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '16px',
+                marginBottom: '12px',
+                color: 'var(--color-ink)',
+                position: 'sticky',
+                top: 0,
+                backgroundColor: 'var(--color-page)',
+                zIndex: 2,
+                paddingBottom: '6px'
+              }}
+            >
               Rebalance pairs ({filteredPairs.length})
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -246,7 +265,10 @@ export const DepotsView: React.FC<DepotsViewProps> = ({ isPanel = false }) => {
                 padding: '24px',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '24px'
+                gap: '24px',
+                position: isPanel ? 'static' : 'sticky',
+                top: '20px',
+                alignSelf: 'start'
               }}
               aria-label="Simulation configuration and recalculation"
             >
