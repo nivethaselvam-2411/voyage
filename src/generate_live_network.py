@@ -250,3 +250,4 @@ with open(out_mock, "w", encoding="utf-8") as f:
 
 print(f"Generated live network: {len(corridors)} corridors, {len(buses)} active buses, {len(transfer_stops)} hubs.")
 print(f"Saved to {out_demo} and {out_mock}")
+

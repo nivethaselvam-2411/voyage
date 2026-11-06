@@ -5,7 +5,6 @@ import { fetchLiveNetwork } from '../services/api';
 import type { LiveNetworkResponse, LiveBus, LiveCorridor, TransferStop } from '../types';
 import { DcrBadge } from '../components/DcrBadge';
 import { ErrorState } from '../components/ErrorState';
-import { LoadingSkeleton } from '../components/LoadingSkeleton';
 import { Search } from 'lucide-react';
 
 interface LiveMapViewProps {
@@ -74,7 +73,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
     return data.buses.find((b: LiveBus) => b.id === selectedBusId) || data.buses[0] || null;
   }, [data, selectedBusId]);
 
-  // Initialize Leaflet Map once
+  // Initialize Leaflet Map
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
@@ -83,13 +82,13 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       center: [13.02, 80.22],
       zoom: 11,
       minZoom: 9,
-      maxZoom: 17,
+      maxZoom: 18,
       zoomControl: true
     });
 
-    // Clean, high-legibility Voyager map tiles
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    // Standard OpenStreetMap tiles - highly reliable and globally accessible
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19
     }).addTo(map);
 
@@ -99,11 +98,26 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
 
     mapInstanceRef.current = map;
 
+    // Invalidate size to ensure tiles render immediately
+    setTimeout(() => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.invalidateSize();
+      }
+    }, 250);
+
+    const handleResize = () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.invalidateSize();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       map.remove();
       mapInstanceRef.current = null;
     };
-  }, []);
+  }, [loading]);
 
   // Render Corridors on Map
   useEffect(() => {
@@ -236,14 +250,6 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
 
   if (error) {
     return <ErrorState message={error} onRetry={loadData} />;
-  }
-
-  if (loading && !data) {
-    return (
-      <div style={{ padding: '24px 32px', maxWidth: '1600px', margin: '0 auto' }}>
-        <LoadingSkeleton rows={4} height={130} />
-      </div>
-    );
   }
 
   const summary = data?.summary;
@@ -417,10 +423,12 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
             borderRadius: 'var(--radius-sm)',
             overflow: 'hidden',
             border: 'var(--border-panel)',
-            backgroundColor: '#F1F5F9'
+            backgroundColor: '#F1F5F9',
+            height: '100%',
+            minHeight: '560px'
           }}
         >
-          <div ref={mapContainerRef} style={{ width: '100%', height: '100%' }} />
+          <div ref={mapContainerRef} style={{ width: '100%', height: '100%', minHeight: '560px' }} />
 
           {/* Map Overlay Legend */}
           <div
