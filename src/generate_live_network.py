@@ -1,7 +1,7 @@
 """
 Generates real-time live network simulation data for Marina Sentinel Live Map.
 Extracts real GIS polylines from Public Transport/MTC/routes_merged.shp
-and couples them with passenger occupancy estimation from ETM backtest metrics.
+and couples them with passenger occupancy estimation and ex-ante delay prediction.
 """
 import struct
 import json
@@ -142,7 +142,7 @@ for c_spec in key_corridors_spec:
         "waypoints": clean_pts
     })
     
-    # Generate 5-7 active buses along this corridor with realistic load curves
+    # Generate 5-7 active buses along this corridor with realistic load and delay curves
     num_buses = random.randint(5, 7)
     fractions = sorted([random.uniform(0.08, 0.92) for _ in range(num_buses)])
     
@@ -163,22 +163,53 @@ for c_spec in key_corridors_spec:
             
         dcr = round(pax / 70.0, 2)
         
+        # -------------------------------------------------------------
+        # EX-ANTE DELAY PREDICTION ENGINE
+        # Models dwell-time inflation + inbound turnaround cascade
+        # -------------------------------------------------------------
         if dcr >= 1.25:
             status = "critical"
             action = f"Priority 1: Fleet Injection (+{math.ceil((pax - 70)/70)} Reserve Bus)"
+            dwell_delay = round(random.uniform(7.5, 12.0), 1)
+            cascade_delay = round(random.uniform(8.0, 14.0), 1)
+            total_delay = round(dwell_delay + cascade_delay, 1)
+            delay_status = "severe"
+            advisory = f"High Delay (+{int(total_delay)}m) & Crush Load. PIS Advisory: Divert to alternate parallel Route 19B (Seats Available)."
         elif dcr >= 1.0:
             status = "crowded"
             action = "Priority 2: Short-Turn Loop at Major Interchange"
+            dwell_delay = round(random.uniform(4.0, 6.5), 1)
+            cascade_delay = round(random.uniform(3.5, 7.5), 1)
+            total_delay = round(dwell_delay + cascade_delay, 1)
+            delay_status = "moderate"
+            advisory = f"Moderate Delay (+{int(total_delay)}m). Expect standing room only."
         elif dcr >= 0.70:
             status = "balanced"
             action = "Maintain Standard Operating Headway"
+            dwell_delay = round(random.uniform(1.0, 2.5), 1)
+            cascade_delay = round(random.uniform(0.5, 2.5), 1)
+            total_delay = round(dwell_delay + cascade_delay, 1)
+            delay_status = "on_time"
+            advisory = "On Schedule (< 5m delay). Seats available."
         else:
             status = "surplus"
             action = "Potential Donor Candidate for Intra-Depot Lending"
+            dwell_delay = 0.0
+            cascade_delay = round(random.uniform(0.0, 1.8), 1)
+            total_delay = round(dwell_delay + cascade_delay, 1)
+            delay_status = "on_time"
+            advisory = "On Schedule. High seat availability."
             
         fleet_num = f"TN-01-N-{bus_id_counter}"
         bus_id_counter += random.randint(12, 38)
         
+        # Scheduled vs predicted arrival
+        sched_minute = (int(f * 50) + 15) % 60
+        sched_time = f"08:{sched_minute:02d} AM"
+        pred_minute = (sched_minute + int(total_delay)) % 60
+        pred_hour = 8 + ((sched_minute + int(total_delay)) // 60)
+        pred_time = f"{pred_hour:02d}:{pred_minute:02d} AM"
+
         buses.append({
             "id": f"BUS-MTC-{fleet_num}",
             "fleet_no": fleet_num,
@@ -196,7 +227,15 @@ for c_spec in key_corridors_spec:
             "progress_percent": round(f * 100, 1),
             "recommended_action": action,
             "total_boarded": int(pax * random.uniform(1.3, 1.6)),
-            "total_alighted": int(pax * random.uniform(0.3, 0.6))
+            "total_alighted": int(pax * random.uniform(0.3, 0.6)),
+            # Ex-Ante Delay Predictions
+            "predicted_delay_min": total_delay,
+            "departure_cascade_delay_min": cascade_delay,
+            "dwell_congestion_delay_min": dwell_delay,
+            "delay_status": delay_status,
+            "scheduled_time": sched_time,
+            "predicted_arrival_time": pred_time,
+            "passenger_advisory": advisory
         })
 
 # Top transfer hub stops across Chennai for map pins
@@ -228,7 +267,12 @@ network_payload = {
         "balanced": sum(1 for b in buses if b["status"] == "balanced"),
         "surplus_potential_donors": sum(1 for b in buses if b["status"] == "surplus"),
         "network_avg_dcr": round(sum(b["dcr"] for b in buses) / len(buses), 2),
-        "total_passengers_in_transit": sum(b["passengers"] for b in buses)
+        "total_passengers_in_transit": sum(b["passengers"] for b in buses),
+        # Delay summary metrics
+        "avg_predicted_delay_min": round(sum(b["predicted_delay_min"] for b in buses) / len(buses), 1),
+        "severe_delay_count": sum(1 for b in buses if b["delay_status"] == "severe"),
+        "moderate_delay_count": sum(1 for b in buses if b["delay_status"] == "moderate"),
+        "on_time_count": sum(1 for b in buses if b["delay_status"] == "on_time")
     },
     "corridors": corridors,
     "buses": buses,
@@ -248,6 +292,6 @@ with open(out_demo, "w", encoding="utf-8") as f:
 with open(out_mock, "w", encoding="utf-8") as f:
     json.dump(network_payload, f, indent=2)
 
-print(f"Generated live network: {len(corridors)} corridors, {len(buses)} active buses, {len(transfer_stops)} hubs.")
+print(f"Generated live network with delay predictions: {len(corridors)} corridors, {len(buses)} active buses.")
+print(f"Avg predicted delay: {network_payload['summary']['avg_predicted_delay_min']} mins. Severe delay: {network_payload['summary']['severe_delay_count']} buses.")
 print(f"Saved to {out_demo} and {out_mock}")
-

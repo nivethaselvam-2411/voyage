@@ -15,10 +15,12 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
   const [data, setData] = useState<LiveNetworkResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [mapReady, setMapReady] = useState<boolean>(false);
 
   // Filters & Selection
   const [selectedRoute, setSelectedRoute] = useState<string>('all');
   const [selectedStatus, setSelectedStatus] = useState<string>('all');
+  const [selectedDelay, setSelectedDelay] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedBusId, setSelectedBusId] = useState<string | null>(null);
   const [showStops, setShowStops] = useState<boolean>(true);
@@ -57,6 +59,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
     return data.buses.filter((bus: LiveBus) => {
       const matchesRoute = selectedRoute === 'all' || bus.route.toLowerCase() === selectedRoute.toLowerCase();
       const matchesStatus = selectedStatus === 'all' || bus.status === selectedStatus;
+      const matchesDelay = selectedDelay === 'all' || bus.delay_status === selectedDelay;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||
@@ -64,31 +67,40 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
         bus.route.toLowerCase().includes(q) ||
         bus.route_name.toLowerCase().includes(q) ||
         bus.depot.toLowerCase().includes(q);
-      return matchesRoute && matchesStatus && matchesSearch;
+      return matchesRoute && matchesStatus && matchesDelay && matchesSearch;
     });
-  }, [data, selectedRoute, selectedStatus, searchQuery]);
+  }, [data, selectedRoute, selectedStatus, selectedDelay, searchQuery]);
 
   const selectedBus = useMemo(() => {
     if (!data?.buses) return null;
     return data.buses.find((b: LiveBus) => b.id === selectedBusId) || data.buses[0] || null;
   }, [data, selectedBusId]);
 
-  // Initialize Leaflet Map
+  // Initialize Leaflet Map once on mount
   useEffect(() => {
-    if (!mapContainerRef.current || mapInstanceRef.current) return;
+    if (!mapContainerRef.current) return;
+    if (mapInstanceRef.current) return;
 
-    // Centered on Chennai: 13.04 N, 80.22 E
-    const map = L.map(mapContainerRef.current, {
-      center: [13.02, 80.22],
+    const container = mapContainerRef.current;
+    // Clear any residual Leaflet instance ID on the DOM node (e.g. from Vite hot reload)
+    if ((container as unknown as { _leaflet_id?: number })._leaflet_id) {
+      delete (container as unknown as { _leaflet_id?: number })._leaflet_id;
+    }
+
+    // Centered on Chennai arterial grid: 13.04 N, 80.22 E
+    const map = L.map(container, {
+      center: [13.04, 80.22],
       zoom: 11,
       minZoom: 9,
       maxZoom: 18,
-      zoomControl: true
+      zoomControl: true,
+      preferCanvas: true
     });
 
-    // Standard OpenStreetMap tiles - highly reliable and globally accessible
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    // High performance CartoDB Voyager tiles (crisp, high contrast, transit-optimized, zero rate-limit blocks)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
       maxZoom: 19
     }).addTo(map);
 
@@ -97,27 +109,40 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
     busLayerGroupRef.current = L.layerGroup().addTo(map);
 
     mapInstanceRef.current = map;
+    setMapReady(true);
 
-    // Invalidate size to ensure tiles render immediately
-    setTimeout(() => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.invalidateSize();
-      }
-    }, 250);
+    // Call invalidateSize after container has painted its dimensions
+    const t1 = setTimeout(() => {
+      map.invalidateSize();
+    }, 150);
+    const t2 = setTimeout(() => {
+      map.invalidateSize();
+    }, 500);
 
     const handleResize = () => {
-      if (mapInstanceRef.current) {
-        mapInstanceRef.current.invalidateSize();
-      }
+      map.invalidateSize();
     };
     window.addEventListener('resize', handleResize);
 
     return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
       window.removeEventListener('resize', handleResize);
       map.remove();
       mapInstanceRef.current = null;
+      corridorLayerGroupRef.current = null;
+      stopsLayerGroupRef.current = null;
+      busLayerGroupRef.current = null;
+      setMapReady(false);
     };
-  }, [loading]);
+  }, []);
+
+  // Invalidate map size whenever data or layout changes
+  useEffect(() => {
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.invalidateSize();
+    }
+  }, [loading, data, mapReady]);
 
   // Render Corridors on Map
   useEffect(() => {
@@ -141,7 +166,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       poly.bindTooltip(`<b>Route ${corr.route_id}</b><br/>${corr.name}`, { sticky: true });
       layer.addLayer(poly);
     });
-  }, [data, selectedRoute, showCorridors]);
+  }, [mapReady, data, selectedRoute, showCorridors]);
 
   // Render Major Transfer Stops on Map
   useEffect(() => {
@@ -173,9 +198,9 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       });
       layer.addLayer(marker);
     });
-  }, [data, showStops]);
+  }, [mapReady, data, showStops]);
 
-  // Render Buses with Live Passenger Load
+  // Render Buses with Live Passenger Load & Predicted Delays
   useEffect(() => {
     const layer = busLayerGroupRef.current;
     if (!layer || !filteredBuses) return;
@@ -189,6 +214,14 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       if (bus.status === 'critical') badgeBg = '#DC2626'; // Overcrowded
       else if (bus.status === 'crowded') badgeBg = '#D97706'; // Near-Capacity
       else if (bus.status === 'surplus') badgeBg = '#64748B'; // Surplus
+
+      // Delay indicator pill
+      const delayColor =
+        bus.delay_status === 'severe'
+          ? '#991B1B'
+          : bus.delay_status === 'moderate'
+          ? '#B45309'
+          : '#15803D';
 
       const busHtml = `
         <div style="
@@ -214,14 +247,17 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
           <span style="background: rgba(0,0,0,0.25); padding: 1px 4px; border-radius: 6px; font-size: 10px;">
             ${bus.passengers}p
           </span>
+          <span style="background: ${delayColor}; padding: 1px 4px; border-radius: 6px; font-size: 9px;">
+            +${Math.round(bus.predicted_delay_min)}m
+          </span>
         </div>
       `;
 
       const busIcon = L.divIcon({
         className: 'custom-bus-marker',
         html: busHtml,
-        iconSize: [60, 22],
-        iconAnchor: [30, 11]
+        iconSize: [85, 24],
+        iconAnchor: [42, 12]
       });
 
       const marker = L.marker([bus.lat, bus.lng], { icon: busIcon, zIndexOffset: isSelected ? 1000 : 100 });
@@ -233,13 +269,13 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       });
 
       marker.bindTooltip(
-        `<b>${bus.fleet_no}</b> (Rt ${bus.route})<br/><b>${bus.passengers} Passengers</b> (${bus.dcr}x DCR)<br/>Status: <b>${bus.status.toUpperCase()}</b>`,
+        `<b>${bus.fleet_no}</b> (Rt ${bus.route})<br/><b>${bus.passengers} Passengers</b> (${bus.dcr}x DCR)<br/>Predicted Delay: <b>+${bus.predicted_delay_min} min (${bus.delay_status.toUpperCase()})</b><br/>Expected Arrival: <b>${bus.predicted_arrival_time}</b>`,
         { direction: 'top', offset: [0, -12] }
       );
 
       layer.addLayer(marker);
     });
-  }, [filteredBuses, selectedBusId]);
+  }, [mapReady, filteredBuses, selectedBusId]);
 
   const handleSelectBus = (bus: LiveBus) => {
     setSelectedBusId(bus.id);
@@ -292,7 +328,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
             </span>
           </div>
           <p style={{ color: 'var(--color-ink-muted)', fontSize: '13px', marginTop: '2px' }}>
-            Real-time passenger load profiles derived from the boarding-alighting conservation law across MTC GIS corridors.
+            Real-time passenger load profiles derived from ETM boarding-alighting conservation law + 60-min ex-ante delay prediction.
           </p>
         </div>
 
@@ -313,6 +349,13 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
               <div style={{ fontSize: '10px', color: '#B91C1C' }}>Critical Overcrowded</div>
               <div style={{ fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: '#DC2626' }}>
                 {summary.critical_overcrowded} <span style={{ fontSize: '11px', fontWeight: 400 }}>buses</span>
+              </div>
+            </div>
+            {/* Predicted Delay Badge */}
+            <div style={{ backgroundColor: '#FFFBEB', border: '1px solid #FCD34D', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ fontSize: '10px', color: '#B45309' }}>Avg Predicted Delay</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, fontFamily: 'var(--font-mono)', color: '#D97706' }}>
+                +{summary.avg_predicted_delay_min} <span style={{ fontSize: '11px', fontWeight: 400 }}>min</span>
               </div>
             </div>
             <div style={{ backgroundColor: 'var(--color-panel)', border: 'var(--border-panel)', padding: '6px 12px', borderRadius: 'var(--radius-sm)' }}>
@@ -364,11 +407,26 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
               onChange={(e) => setSelectedStatus(e.target.value)}
               style={{ fontSize: '12px', padding: '4px 8px' }}
             >
-              <option value="all">All Statuses</option>
+              <option value="all">All Occupancies</option>
               <option value="critical">🔴 Critical Overcrowded (DCR ≥ 1.25x)</option>
               <option value="crowded">🟠 Near Capacity (DCR 1.0 - 1.25x)</option>
               <option value="balanced">🟢 Balanced (DCR 0.70 - 1.0x)</option>
               <option value="surplus">⚪ Surplus / Donors (DCR &lt; 0.70x)</option>
+            </select>
+          </div>
+
+          {/* Delay Filter */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 600 }}>Predicted Delay:</span>
+            <select
+              value={selectedDelay}
+              onChange={(e) => setSelectedDelay(e.target.value)}
+              style={{ fontSize: '12px', padding: '4px 8px' }}
+            >
+              <option value="all">All Delay Ranges</option>
+              <option value="severe">🔴 Severe Delay (≥ 15 mins)</option>
+              <option value="moderate">🟠 Moderate Delay (5 - 14 mins)</option>
+              <option value="on_time">🟢 On Schedule (&lt; 5 mins)</option>
             </select>
           </div>
 
@@ -380,7 +438,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
               placeholder="Search bus, route, depot..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ paddingLeft: '26px', fontSize: '12px', paddingRight: '8px', width: '180px' }}
+              style={{ paddingLeft: '26px', fontSize: '12px', paddingRight: '8px', width: '160px' }}
             />
           </div>
         </div>
@@ -410,7 +468,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: isPanel ? '1fr' : 'minmax(500px, 1fr) 380px',
+          gridTemplateColumns: isPanel ? '1fr' : 'minmax(500px, 1fr) 390px',
           gap: '16px',
           height: 'calc(100vh - 210px)',
           minHeight: '560px'
@@ -450,7 +508,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
             }}
           >
             <div style={{ fontWeight: 700, fontSize: '11px', color: 'var(--color-ink)', marginBottom: '2px' }}>
-              Passenger Load Key (70 Seat Cap)
+              Passenger Load &amp; Delay Status
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ width: '10px', height: '10px', backgroundColor: '#DC2626', borderRadius: '2px' }} />
@@ -486,12 +544,12 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
               style={{
                 backgroundColor: 'var(--color-panel)',
                 border: 'var(--border-panel)',
-                padding: '18px 20px',
+                padding: '16px 18px',
                 borderRadius: 'var(--radius-sm)',
                 boxShadow: '0 2px 6px rgba(0,0,0,0.04)'
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                 <div>
                   <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--color-ink-muted)' }}>
                     {selectedBus.depot} &bull; {selectedBus.speed_kmh} km/h
@@ -507,7 +565,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
               </div>
 
               {/* Occupancy Progress Gauge */}
-              <div style={{ margin: '14px 0' }}>
+              <div style={{ margin: '10px 0' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '4px' }}>
                   <span style={{ fontWeight: 600 }}>Onboard Passenger Load</span>
                   <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 700 }}>
@@ -533,17 +591,94 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
                 </div>
               </div>
 
+              {/* Ex-Ante Predicted Delay & Timetable Module */}
+              <div
+                style={{
+                  backgroundColor: 'var(--color-panel-contrast)',
+                  border: 'var(--border-hairline)',
+                  borderRadius: 'var(--radius-sm)',
+                  padding: '10px 12px',
+                  marginBottom: '10px'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--color-ink)' }}>
+                    Ex-Ante Predicted Delay (60m)
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '11px',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      padding: '2px 8px',
+                      borderRadius: 'var(--radius-sm)',
+                      backgroundColor:
+                        selectedBus.delay_status === 'severe'
+                          ? '#FEE2E2'
+                          : selectedBus.delay_status === 'moderate'
+                          ? '#FEF3C7'
+                          : '#DCFCE7',
+                      color:
+                        selectedBus.delay_status === 'severe'
+                          ? '#DC2626'
+                          : selectedBus.delay_status === 'moderate'
+                          ? '#D97706'
+                          : '#16A34A'
+                    }}
+                  >
+                    +{selectedBus.predicted_delay_min} mins ({selectedBus.delay_status.toUpperCase()})
+                  </span>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', fontSize: '11px', marginBottom: '6px' }}>
+                  <div>
+                    <span style={{ color: 'var(--color-ink-muted)' }}>Scheduled: </span>
+                    <strong style={{ fontFamily: 'var(--font-mono)' }}>{selectedBus.scheduled_time}</strong>
+                  </div>
+                  <div>
+                    <span style={{ color: 'var(--color-ink-muted)' }}>Predicted Arrival: </span>
+                    <strong style={{ fontFamily: 'var(--font-mono)', color: selectedBus.predicted_delay_min > 5 ? '#DC2626' : 'var(--color-ink)' }}>
+                      {selectedBus.predicted_arrival_time}
+                    </strong>
+                  </div>
+                </div>
+
+                {/* Delay Cause Attribution */}
+                <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)', borderTop: '1px solid #E2E8F0', paddingTop: '4px' }}>
+                  Root Cause: <strong style={{ color: 'var(--color-ink)' }}>+{selectedBus.departure_cascade_delay_min}m</strong> inbound cascade &bull; <strong style={{ color: 'var(--color-ink)' }}>+{selectedBus.dwell_congestion_delay_min}m</strong> dwell friction ({selectedBus.passengers} pax).
+                </div>
+              </div>
+
+              {/* Dynamic Commuter PIS Advisory Alert */}
+              <div
+                style={{
+                  backgroundColor: '#FEF9C3',
+                  border: '1px solid #FDE047',
+                  borderRadius: 'var(--radius-sm)',
+                  padding: '8px 10px',
+                  marginBottom: '10px',
+                  fontSize: '11px'
+                }}
+              >
+                <div style={{ fontWeight: 700, color: '#854D0E', display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '2px' }}>
+                  <span>📢</span> Public Information Display (PIS) Advisory
+                </div>
+                <div style={{ color: '#713F12', lineHeight: 1.35 }}>
+                  {selectedBus.passenger_advisory}
+                </div>
+              </div>
+
               {/* Boarding vs Alighting Metrics */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '14px' }}>
-                <div style={{ backgroundColor: 'var(--color-panel-contrast)', padding: '8px 10px', borderRadius: 'var(--radius-sm)' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)' }}>Cumulative Boardings</div>
-                  <div style={{ fontSize: '15px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginBottom: '10px' }}>
+                <div style={{ backgroundColor: 'var(--color-panel-contrast)', padding: '6px 8px', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ fontSize: '9px', color: 'var(--color-ink-muted)' }}>Boardings</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
                     +{selectedBus.total_boarded} pax
                   </div>
                 </div>
-                <div style={{ backgroundColor: 'var(--color-panel-contrast)', padding: '8px 10px', borderRadius: 'var(--radius-sm)' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)' }}>Cumulative Alightings</div>
-                  <div style={{ fontSize: '15px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                <div style={{ backgroundColor: 'var(--color-panel-contrast)', padding: '6px 8px', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ fontSize: '9px', color: 'var(--color-ink-muted)' }}>Alightings</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
                     -{selectedBus.total_alighted} pax
                   </div>
                 </div>
@@ -554,20 +689,20 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
                 style={{
                   borderLeft: `4px solid ${selectedBus.status === 'critical' ? '#DC2626' : '#2563EB'}`,
                   backgroundColor: selectedBus.status === 'critical' ? '#FEF2F2' : '#EFF6FF',
-                  padding: '10px 12px',
+                  padding: '8px 10px',
                   borderRadius: '0 var(--radius-sm) var(--radius-sm) 0',
-                  fontSize: '12px'
+                  fontSize: '11px'
                 }}
               >
-                <div style={{ fontWeight: 700, color: 'var(--color-ink)', marginBottom: '2px' }}>
-                  Dispatch Intervention Recommendation
+                <div style={{ fontWeight: 700, color: 'var(--color-ink)', marginBottom: '1px' }}>
+                  Dispatcher Action
                 </div>
                 <div style={{ color: 'var(--color-ink)' }}>{selectedBus.recommended_action}</div>
               </div>
             </div>
           ) : (
             <div style={{ padding: '20px', textAlign: 'center', color: 'var(--color-ink-muted)' }}>
-              Click any bus marker on the map to inspect live passenger load.
+              Click any bus marker on the map to inspect live passenger load and predicted delay.
             </div>
           )}
 
@@ -576,24 +711,24 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
             style={{
               backgroundColor: 'var(--color-panel)',
               border: 'var(--border-panel)',
-              padding: '14px',
+              padding: '12px',
               borderRadius: 'var(--radius-sm)',
               flex: 1,
               display: 'flex',
               flexDirection: 'column',
-              minHeight: '260px'
+              minHeight: '240px'
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700 }}>
                 Tracked fleet stream ({filteredBuses.length})
               </span>
-              <span style={{ fontSize: '11px', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '10px', color: 'var(--color-ink-muted)', fontFamily: 'var(--font-mono)' }}>
                 Sorted by load
               </span>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', overflowY: 'auto', maxHeight: '320px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', overflowY: 'auto', maxHeight: '280px' }}>
               {filteredBuses
                 .slice()
                 .sort((a, b) => b.passengers - a.passengers)
@@ -608,7 +743,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        padding: '8px 10px',
+                        padding: '6px 8px',
                         backgroundColor: isSelected ? 'var(--color-panel-contrast)' : 'transparent',
                         border: isSelected ? '1px solid var(--color-ink)' : '1px solid transparent',
                         borderRadius: 'var(--radius-sm)',
@@ -633,7 +768,7 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
                           }}
                         />
                         <div>
-                          <div style={{ fontSize: '12px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                          <div style={{ fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
                             Rt {b.route} &bull; {b.fleet_no}
                           </div>
                           <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)' }}>
@@ -643,10 +778,10 @@ export const LiveMapView: React.FC<LiveMapViewProps> = ({ isPanel = false }) => 
                       </div>
 
                       <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontSize: '12px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
-                          {b.passengers} pax
+                        <div style={{ fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+                          {b.passengers}p &bull; <span style={{ color: b.predicted_delay_min >= 15 ? '#DC2626' : b.predicted_delay_min >= 5 ? '#D97706' : '#16A34A' }}>+{Math.round(b.predicted_delay_min)}m</span>
                         </div>
-                        <div style={{ fontSize: '10px', color: 'var(--color-ink-muted)' }}>
+                        <div style={{ fontSize: '9px', color: 'var(--color-ink-muted)' }}>
                           {b.dcr}x DCR
                         </div>
                       </div>

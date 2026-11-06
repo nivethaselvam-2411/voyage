@@ -191,6 +191,7 @@ export interface DatasetManifest {
 }
 
 export type LiveBusStatus = 'critical' | 'crowded' | 'balanced' | 'surplus';
+export type DelayStatus = 'severe' | 'moderate' | 'on_time';
 
 export interface LiveBus {
   id: string;
@@ -210,6 +211,14 @@ export interface LiveBus {
   recommended_action: string;
   total_boarded: number;
   total_alighted: number;
+  // Ex-Ante Delay Predictions
+  predicted_delay_min: number;
+  departure_cascade_delay_min: number;
+  dwell_congestion_delay_min: number;
+  delay_status: DelayStatus;
+  scheduled_time: string;
+  predicted_arrival_time: string;
+  passenger_advisory: string;
 }
 
 export interface LiveCorridor {
@@ -238,6 +247,11 @@ export interface LiveNetworkSummary {
   surplus_potential_donors: number;
   network_avg_dcr: number;
   total_passengers_in_transit: number;
+  // Delay Aggregates
+  avg_predicted_delay_min: number;
+  severe_delay_count: number;
+  moderate_delay_count: number;
+  on_time_count: number;
 }
 
 export interface LiveNetworkResponse {
