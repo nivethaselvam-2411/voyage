@@ -45,14 +45,26 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
     loadData();
   }, []);
 
+  const allStops = useMemo(() => {
+    return manifest?.stops || manifest?.sample_stops || [];
+  }, [manifest]);
+
   const filteredStops = useMemo(() => {
-    if (!manifest?.sample_stops) return [];
-    return manifest.sample_stops.filter((s: DatasetStop) => {
-      const matchesZone = selectedZone === 'all' || s.zone.toLowerCase() === selectedZone.toLowerCase();
-      const matchesQuery = s.name.toLowerCase().includes(stopSearch.toLowerCase());
+    if (!allStops.length) return [];
+    return allStops.filter((s: DatasetStop) => {
+      const matchesZone =
+        selectedZone === 'all' ||
+        (s.zone && s.zone.toLowerCase() === selectedZone.toLowerCase());
+      const matchesQuery =
+        !stopSearch ||
+        (s.name && s.name.toLowerCase().includes(stopSearch.toLowerCase()));
       return matchesZone && matchesQuery;
     });
-  }, [manifest, stopSearch, selectedZone]);
+  }, [allStops, stopSearch, selectedZone]);
+
+  const tickets = useMemo(() => {
+    return manifest?.telemetry_samples || manifest?.sample_tickets || [];
+  }, [manifest]);
 
   if (error) {
     return <ErrorState message={error} onRetry={loadData} />;
@@ -338,8 +350,9 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                     </tr>
                   </thead>
                   <tbody>
-                    {manifest?.sample_tickets?.map((ticket: DatasetTicketSample, idx: number) => {
+                    {tickets.map((ticket: DatasetTicketSample, idx: number) => {
                       const isSelected = selectedTicketIndex === idx;
+                      const route = ticket.route || (ticket as unknown as { direction?: string }).direction?.split(' ')[0] || (ticket as unknown as { schedule_no?: string }).schedule_no || 'MTC';
                       return (
                         <tr
                           key={idx}
@@ -354,7 +367,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                           <td>{ticket.depot}</td>
                           <td style={{ fontFamily: 'var(--font-mono)' }}>{ticket.fleet_no}</td>
                           <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: 'var(--color-accent-orange)' }}>
-                            {ticket.route}
+                            {route}
                           </td>
                           <td style={{ fontSize: '12px' }}>{ticket.source}</td>
                           <td style={{ fontSize: '12px' }}>{ticket.destination}</td>
@@ -364,7 +377,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                               style={{
                                 fontSize: '11px',
                                 padding: '2px 6px',
-                                backgroundColor: ticket.ticket_type.includes('Women') ? 'var(--color-cream)' : 'var(--color-panel-contrast)',
+                                backgroundColor: ticket.ticket_type?.includes('Women') ? 'var(--color-cream)' : 'var(--color-panel-contrast)',
                                 border: 'var(--border-hairline)'
                               }}
                             >
@@ -373,7 +386,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                           </td>
                           <td style={{ fontFamily: 'var(--font-mono)' }}>₹{ticket.total_ticket_amount}</td>
                           <td style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--color-ink-muted)' }}>
-                            {ticket.waybill_no.slice(-8)}
+                            {ticket.waybill_no ? ticket.waybill_no.slice(-8) : 'N/A'}
                           </td>
                         </tr>
                       );
@@ -383,7 +396,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
               </div>
 
               {/* Selected Packet Inspector */}
-              {manifest?.sample_tickets && manifest.sample_tickets[selectedTicketIndex] && (
+              {tickets && tickets[selectedTicketIndex] && (
                 <div
                   style={{
                     backgroundColor: 'var(--color-panel)',
@@ -405,25 +418,25 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                     <div style={{ padding: '8px', border: 'var(--border-hairline)', backgroundColor: 'var(--color-cream)' }}>
                       <span style={{ color: 'var(--color-ink-muted)' }}>ETM Machine ID / Waybill:</span>
                       <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 600, marginTop: '2px' }}>
-                        {manifest.sample_tickets[selectedTicketIndex].waybill_no}
+                        {tickets[selectedTicketIndex].waybill_no}
                       </div>
                     </div>
                     <div style={{ padding: '8px', border: 'var(--border-hairline)', backgroundColor: 'var(--color-cream)' }}>
                       <span style={{ color: 'var(--color-ink-muted)' }}>Origin ↔ Destination Journey:</span>
                       <div style={{ fontWeight: 600, marginTop: '2px' }}>
-                        {manifest.sample_tickets[selectedTicketIndex].source} → {manifest.sample_tickets[selectedTicketIndex].destination}
+                        {tickets[selectedTicketIndex].source} → {tickets[selectedTicketIndex].destination}
                       </div>
                     </div>
                     <div style={{ padding: '8px', border: 'var(--border-hairline)', backgroundColor: 'var(--color-cream)' }}>
                       <span style={{ color: 'var(--color-ink-muted)' }}>Assigned Bus Depot:</span>
                       <div style={{ fontWeight: 600, marginTop: '2px' }}>
-                        {manifest.sample_tickets[selectedTicketIndex].depot} Depot
+                        {tickets[selectedTicketIndex].depot} Depot
                       </div>
                     </div>
                     <div style={{ padding: '8px', border: 'var(--border-hairline)', backgroundColor: 'var(--color-cream)' }}>
                       <span style={{ color: 'var(--color-ink-muted)' }}>Ticket Classification:</span>
                       <div style={{ fontWeight: 600, marginTop: '2px' }}>
-                        {manifest.sample_tickets[selectedTicketIndex].ticket_type} (Fare: ₹{manifest.sample_tickets[selectedTicketIndex].total_ticket_amount})
+                        {tickets[selectedTicketIndex].ticket_type} (Fare: ₹{tickets[selectedTicketIndex].total_ticket_amount})
                       </div>
                     </div>
                   </div>
@@ -527,7 +540,7 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                         cursor: 'pointer'
                       }}
                     >
-                      {z === 'all' ? 'All (2,720 stops)' : `${z} Corporation`}
+                      {z === 'all' ? `All (${allStops.length || 2717} stops)` : `${z} Corporation`}
                     </button>
                   ))}
                 </div>
@@ -563,33 +576,41 @@ export const DatasetView: React.FC<DatasetViewProps> = ({ isPanel = false }) => 
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredStops.slice(0, 30).map((stop: DatasetStop, idx: number) => (
-                      <tr key={idx}>
-                        <td style={{ fontWeight: 600 }}>{stop.name}</td>
-                        <td>
-                          <span
-                            style={{
-                              fontSize: '11px',
-                              padding: '2px 6px',
-                              backgroundColor: 'var(--color-cream)',
-                              border: 'var(--border-hairline)'
-                            }}
-                          >
-                            {stop.zone}
-                          </span>
-                        </td>
-                        <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{stop.lat}</td>
-                        <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{stop.lng}</td>
-                        <td style={{ fontSize: '12px', color: 'var(--color-ink-muted)' }}>
-                          Geocoded to CMA Arterial Road Network &amp; ETM Stage
-                        </td>
-                      </tr>
-                    ))}
+                    {filteredStops.slice(0, 50).map((stop: DatasetStop, idx: number) => {
+                      const longitude = stop.lon ?? stop.lng;
+                      return (
+                        <tr key={`${stop.name}-${idx}`}>
+                          <td style={{ fontWeight: 600 }}>{stop.name}</td>
+                          <td>
+                            <span
+                              style={{
+                                fontSize: '11px',
+                                padding: '2px 6px',
+                                backgroundColor: 'var(--color-cream)',
+                                border: 'var(--border-hairline)',
+                                borderRadius: 'var(--radius-sm)'
+                              }}
+                            >
+                              {stop.zone} Corporation
+                            </span>
+                          </td>
+                          <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+                            {typeof stop.lat === 'number' ? stop.lat.toFixed(6) : stop.lat}
+                          </td>
+                          <td style={{ fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+                            {typeof longitude === 'number' ? longitude.toFixed(6) : (longitude ?? 'N/A')}
+                          </td>
+                          <td style={{ fontSize: '12px', color: 'var(--color-ink-muted)' }}>
+                            Geocoded to CMA Arterial Road Network &amp; ETM Stage
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
               <div style={{ fontSize: '11px', color: 'var(--color-ink-muted)', marginTop: '8px', textAlign: 'right' }}>
-                Showing top results from 2,720 geocoded bus stops in the uploaded dataset.
+                Showing {Math.min(50, filteredStops.length)} of {filteredStops.length} stops ({allStops.length} geocoded bus stops in the uploaded dataset).
               </div>
             </div>
           )}
