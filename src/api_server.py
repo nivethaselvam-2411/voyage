@@ -73,6 +73,7 @@ def root():
             "/api/control-room-alerts",
             "/api/rebalance-pairs",
             "/api/routes",
+            "/api/live-network",
             "/api/dataset-manifest",
             "/api/hourly-summary",
             "/api/dashboard",
@@ -453,6 +454,23 @@ def get_hourly_summary():
         else:
             _hourly_summary_cache = {}
     return _hourly_summary_cache
+
+_live_network_cache = None
+
+@app.get("/api/live-network")
+def get_live_network():
+    """Serves real-time simulated buses, occupancy levels, and GIS corridor geometries."""
+    global _live_network_cache
+    if _live_network_cache is None:
+        network_path = ROOT / "outputs/demo/live_network.json"
+        if not network_path.exists():
+            network_path = ROOT / "frontend/src/mocks/live-network.json"
+        if network_path.exists():
+            with open(network_path, "r", encoding="utf-8") as f:
+                _live_network_cache = json.load(f)
+        else:
+            _live_network_cache = {"summary": {}, "corridors": [], "buses": [], "transfer_stops": []}
+    return _live_network_cache
 
 @app.get("/api/dashboard")
 def get_dashboard():

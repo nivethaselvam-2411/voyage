@@ -9,6 +9,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ alertCount }) => {
   const navItems = [
     { to: '/control-room', label: 'Control room', badge: alertCount },
+    { to: '/live-map', label: 'Live map', tag: 'GIS' },
     { to: '/depots', label: 'Depots' },
     { to: '/fleet', label: 'Fleet' },
     { to: '/scorecard', label: 'Scorecard' },

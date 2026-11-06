@@ -190,3 +190,65 @@ export interface DatasetManifest {
   telemetry_samples?: DatasetTicketSample[];
 }
 
+export type LiveBusStatus = 'critical' | 'crowded' | 'balanced' | 'surplus';
+
+export interface LiveBus {
+  id: string;
+  fleet_no: string;
+  route: string;
+  route_name: string;
+  depot: string;
+  lat: number;
+  lng: number;
+  bearing: number;
+  capacity: number;
+  passengers: number;
+  dcr: number;
+  status: LiveBusStatus;
+  speed_kmh: number;
+  progress_percent: number;
+  recommended_action: string;
+  total_boarded: number;
+  total_alighted: number;
+}
+
+export interface LiveCorridor {
+  route_id: string;
+  name: string;
+  origin: string;
+  destination: string;
+  depot: string;
+  color: string;
+  waypoints: [number, number][];
+}
+
+export interface TransferStop {
+  name: string;
+  lat: number;
+  lon: number;
+  type: string;
+}
+
+export interface LiveNetworkSummary {
+  active_buses_tracked: number;
+  active_corridors: number;
+  critical_overcrowded: number;
+  crowded_near_capacity: number;
+  balanced: number;
+  surplus_potential_donors: number;
+  network_avg_dcr: number;
+  total_passengers_in_transit: number;
+}
+
+export interface LiveNetworkResponse {
+  generated_at: string;
+  simulated_time: string;
+  city: string;
+  operator: string;
+  summary: LiveNetworkSummary;
+  corridors: LiveCorridor[];
+  buses: LiveBus[];
+  transfer_stops: TransferStop[];
+}
+
+

@@ -1,0 +1,2583 @@
+{
+  "generated_at": "2026-03-31T08:30:00Z",
+  "simulated_time": "08:30 AM (Peak Morning Window)",
+  "city": "Chennai",
+  "operator": "Metropolitan Transport Corporation (MTC)",
+  "summary": {
+    "active_buses_tracked": 51,
+    "active_corridors": 8,
+    "critical_overcrowded": 11,
+    "crowded_near_capacity": 20,
+    "balanced": 15,
+    "surplus_potential_donors": 5,
+    "network_avg_dcr": 1.04,
+    "total_passengers_in_transit": 3720
+  },
+  "corridors": [
+    {
+      "route_id": "102CT",
+      "name": "OMR Express Corridor (Broadway \u2194 Kelambakkam)",
+      "origin": "Thiruvanmiyur",
+      "destination": "Siruseri I.T Park",
+      "depot": "Adyar Depot",
+      "color": "#2563EB",
+      "waypoints": [
+        [
+          12.82467,
+          80.21604
+        ],
+        [
+          12.83072,
+          80.21941
+        ],
+        [
+          12.83121,
+          80.21974
+        ],
+        [
+          12.83193,
+          80.22912
+        ],
+        [
+          12.83378,
+          80.22867
+        ],
+        [
+          12.83894,
+          80.22777
+        ],
+        [
+          12.84344,
+          80.22665
+        ],
+        [
+          12.8466,
+          80.22643
+        ],
+        [
+          12.8504,
+          80.22646
+        ],
+        [
+          12.85808,
+          80.22617
+        ],
+        [
+          12.86166,
+          80.22641
+        ],
+        [
+          12.86596,
+          80.22644
+        ],
+        [
+          12.87054,
+          80.22645
+        ],
+        [
+          12.87399,
+          80.22669
+        ],
+        [
+          12.87765,
+          80.22672
+        ],
+        [
+          12.88467,
+          80.22655
+        ],
+        [
+          12.88797,
+          80.22715
+        ],
+        [
+          12.8939,
+          80.2274
+        ],
+        [
+          12.8955,
+          80.22759
+        ],
+        [
+          12.90387,
+          80.22797
+        ],
+        [
+          12.90834,
+          80.22842
+        ],
+        [
+          12.91348,
+          80.22909
+        ],
+        [
+          12.91557,
+          80.22941
+        ],
+        [
+          12.92269,
+          80.2304
+        ],
+        [
+          12.92577,
+          80.23075
+        ],
+        [
+          12.92941,
+          80.23134
+        ],
+        [
+          12.93299,
+          80.23225
+        ],
+        [
+          12.93411,
+          80.23292
+        ],
+        [
+          12.93913,
+          80.23522
+        ],
+        [
+          12.94154,
+          80.23607
+        ],
+        [
+          12.94368,
+          80.23726
+        ],
+        [
+          12.94685,
+          80.23975
+        ],
+        [
+          12.94684,
+          80.23972
+        ],
+        [
+          12.94903,
+          80.24029
+        ],
+        [
+          12.95104,
+          80.24124
+        ],
+        [
+          12.95396,
+          80.2424
+        ],
+        [
+          12.95803,
+          80.24401
+        ],
+        [
+          12.96243,
+          80.24601
+        ],
+        [
+          12.9669,
+          80.2479
+        ],
+        [
+          12.97058,
+          80.24941
+        ],
+        [
+          12.97697,
+          80.25119
+        ],
+        [
+          12.97854,
+          80.25226
+        ],
+        [
+          12.98186,
+          80.25262
+        ],
+        [
+          12.9878,
+          80.25136
+        ],
+        [
+          12.98773,
+          80.25578
+        ]
+      ]
+    },
+    {
+      "route_id": "29C",
+      "name": "Central Arterial (Perambur \u2194 Besant Nagar)",
+      "origin": "Perambur B.T",
+      "destination": "Besant Nagar",
+      "depot": "Perambur Depot",
+      "color": "#DC2626",
+      "waypoints": [
+        [
+          13.10839,
+          80.24806
+        ],
+        [
+          13.10797,
+          80.24604
+        ],
+        [
+          13.10912,
+          80.24428
+        ],
+        [
+          13.10834,
+          80.24216
+        ],
+        [
+          13.1071,
+          80.24311
+        ],
+        [
+          13.10668,
+          80.24843
+        ],
+        [
+          13.10493,
+          80.25344
+        ],
+        [
+          13.10003,
+          80.2517
+        ],
+        [
+          13.09719,
+          80.25138
+        ],
+        [
+          13.08952,
+          80.25101
+        ],
+        [
+          13.08575,
+          80.25177
+        ],
+        [
+          13.08223,
+          80.25453
+        ],
+        [
+          13.079,
+          80.25469
+        ],
+        [
+          13.07813,
+          80.24691
+        ],
+        [
+          13.07718,
+          80.24093
+        ],
+        [
+          13.07119,
+          80.24184
+        ],
+        [
+          13.0664,
+          80.24349
+        ],
+        [
+          13.06777,
+          80.24636
+        ],
+        [
+          13.06332,
+          80.24771
+        ],
+        [
+          13.06045,
+          80.2475
+        ],
+        [
+          13.05493,
+          80.24947
+        ],
+        [
+          13.05206,
+          80.2513
+        ],
+        [
+          13.04776,
+          80.25414
+        ],
+        [
+          13.04586,
+          80.2574
+        ],
+        [
+          13.04465,
+          80.2643
+        ],
+        [
+          13.04316,
+          80.26777
+        ],
+        [
+          13.03814,
+          80.26775
+        ],
+        [
+          13.04239,
+          80.26811
+        ],
+        [
+          13.04301,
+          80.26356
+        ],
+        [
+          13.04118,
+          80.26665
+        ],
+        [
+          13.04455,
+          80.26659
+        ],
+        [
+          13.04048,
+          80.26111
+        ],
+        [
+          13.03784,
+          80.26404
+        ],
+        [
+          13.03739,
+          80.26281
+        ],
+        [
+          13.03547,
+          80.25984
+        ],
+        [
+          13.02966,
+          80.26031
+        ],
+        [
+          13.02712,
+          80.25659
+        ],
+        [
+          13.02361,
+          80.25887
+        ],
+        [
+          13.02091,
+          80.26306
+        ],
+        [
+          13.01691,
+          80.26015
+        ],
+        [
+          13.01022,
+          80.25929
+        ],
+        [
+          13.00711,
+          80.25856
+        ],
+        [
+          13.00136,
+          80.25664
+        ],
+        [
+          12.99878,
+          80.25955
+        ],
+        [
+          12.99573,
+          80.26768
+        ]
+      ]
+    },
+    {
+      "route_id": "21G",
+      "name": "GST Trunk (Broadway \u2194 Tambaram)",
+      "origin": "Kcbt - Kilambakkam",
+      "destination": "Island Ground",
+      "depot": "Tambaram Depot",
+      "color": "#D97706",
+      "waypoints": [
+        [
+          12.87351,
+          80.07846
+        ],
+        [
+          12.87666,
+          80.07899
+        ],
+        [
+          12.88254,
+          80.0811
+        ],
+        [
+          12.89319,
+          80.08625
+        ],
+        [
+          12.90547,
+          80.0955
+        ],
+        [
+          12.9108,
+          80.10098
+        ],
+        [
+          12.91563,
+          80.10317
+        ],
+        [
+          12.91985,
+          80.11074
+        ],
+        [
+          12.92947,
+          80.12053
+        ],
+        [
+          12.93661,
+          80.12746
+        ],
+        [
+          12.94405,
+          80.13457
+        ],
+        [
+          12.94975,
+          80.13886
+        ],
+        [
+          12.9532,
+          80.14152
+        ],
+        [
+          12.9637,
+          80.14712
+        ],
+        [
+          12.97275,
+          80.15203
+        ],
+        [
+          12.97976,
+          80.16225
+        ],
+        [
+          12.98439,
+          80.17154
+        ],
+        [
+          12.99227,
+          80.1824
+        ],
+        [
+          13.00176,
+          80.19622
+        ],
+        [
+          13.0026,
+          80.2006
+        ],
+        [
+          13.00569,
+          80.20197
+        ],
+        [
+          13.00847,
+          80.20316
+        ],
+        [
+          13.00777,
+          80.20609
+        ],
+        [
+          13.00905,
+          80.21171
+        ],
+        [
+          13.01255,
+          80.22142
+        ],
+        [
+          13.01511,
+          80.22601
+        ],
+        [
+          13.00822,
+          80.23346
+        ],
+        [
+          13.01276,
+          80.24037
+        ],
+        [
+          13.02309,
+          80.2427
+        ],
+        [
+          13.02854,
+          80.24561
+        ],
+        [
+          13.02881,
+          80.24981
+        ],
+        [
+          13.02879,
+          80.25797
+        ],
+        [
+          13.02975,
+          80.26172
+        ],
+        [
+          13.03119,
+          80.26694
+        ],
+        [
+          13.03349,
+          80.26413
+        ],
+        [
+          13.03987,
+          80.2646
+        ],
+        [
+          13.04166,
+          80.26822
+        ],
+        [
+          13.04436,
+          80.26989
+        ],
+        [
+          13.04342,
+          80.27988
+        ],
+        [
+          13.05093,
+          80.28091
+        ],
+        [
+          13.06039,
+          80.28266
+        ],
+        [
+          13.06988,
+          80.28472
+        ],
+        [
+          13.07404,
+          80.28582
+        ],
+        [
+          13.08073,
+          80.28831
+        ],
+        [
+          13.08799,
+          80.29004
+        ]
+      ]
+    },
+    {
+      "route_id": "19B",
+      "name": "IT Suburban (T.Nagar \u2194 Siruseri)",
+      "origin": "Saidapet",
+      "destination": "Kelambakkam",
+      "depot": "Saidapet Depot",
+      "color": "#7C3AED",
+      "waypoints": [
+        [
+          12.78653,
+          80.22179
+        ],
+        [
+          12.78346,
+          80.21891
+        ],
+        [
+          12.789,
+          80.2214
+        ],
+        [
+          12.79641,
+          80.22056
+        ],
+        [
+          12.80138,
+          80.22353
+        ],
+        [
+          12.80633,
+          80.22478
+        ],
+        [
+          12.81349,
+          80.22889
+        ],
+        [
+          12.81945,
+          80.23043
+        ],
+        [
+          12.82497,
+          80.23135
+        ],
+        [
+          12.83141,
+          80.22927
+        ],
+        [
+          12.83721,
+          80.22812
+        ],
+        [
+          12.84344,
+          80.22665
+        ],
+        [
+          12.85002,
+          80.22645
+        ],
+        [
+          12.85886,
+          80.22623
+        ],
+        [
+          12.86596,
+          80.22644
+        ],
+        [
+          12.87176,
+          80.22652
+        ],
+        [
+          12.87813,
+          80.2267
+        ],
+        [
+          12.8868,
+          80.22693
+        ],
+        [
+          12.89455,
+          80.22743
+        ],
+        [
+          12.90033,
+          80.22783
+        ],
+        [
+          12.90107,
+          80.22565
+        ],
+        [
+          12.90315,
+          80.2279
+        ],
+        [
+          12.91012,
+          80.22869
+        ],
+        [
+          12.91557,
+          80.22941
+        ],
+        [
+          12.92463,
+          80.23071
+        ],
+        [
+          12.93255,
+          80.23221
+        ],
+        [
+          12.93445,
+          80.23307
+        ],
+        [
+          12.94036,
+          80.23577
+        ],
+        [
+          12.94527,
+          80.23896
+        ],
+        [
+          12.94681,
+          80.23967
+        ],
+        [
+          12.94906,
+          80.24067
+        ],
+        [
+          12.95396,
+          80.2424
+        ],
+        [
+          12.95937,
+          80.24457
+        ],
+        [
+          12.96731,
+          80.24809
+        ],
+        [
+          12.97528,
+          80.25069
+        ],
+        [
+          12.97935,
+          80.25259
+        ],
+        [
+          12.98864,
+          80.25112
+        ],
+        [
+          12.99837,
+          80.24866
+        ],
+        [
+          13.00516,
+          80.24729
+        ],
+        [
+          13.0066,
+          80.24628
+        ],
+        [
+          13.0068,
+          80.23998
+        ],
+        [
+          13.00802,
+          80.23416
+        ],
+        [
+          13.01166,
+          80.22271
+        ],
+        [
+          13.01394,
+          80.22332
+        ],
+        [
+          13.01887,
+          80.22441
+        ]
+      ]
+    },
+    {
+      "route_id": "18A",
+      "name": "Grand Southern Arterial (Central \u2194 Tambaram)",
+      "origin": "Kcbt - Kilambakkam",
+      "destination": "Royapuram B.S",
+      "depot": "T.Nagar Depot",
+      "color": "#059669",
+      "waypoints": [
+        [
+          12.87441,
+          80.07817
+        ],
+        [
+          12.88125,
+          80.08063
+        ],
+        [
+          12.89035,
+          80.08461
+        ],
+        [
+          12.89367,
+          80.08104
+        ],
+        [
+          12.89739,
+          80.08938
+        ],
+        [
+          12.90627,
+          80.09662
+        ],
+        [
+          12.89507,
+          80.08796
+        ],
+        [
+          12.89522,
+          80.08764
+        ],
+        [
+          12.90872,
+          80.09798
+        ],
+        [
+          12.91273,
+          80.10144
+        ],
+        [
+          12.91588,
+          80.10485
+        ],
+        [
+          12.92131,
+          80.11232
+        ],
+        [
+          12.93305,
+          80.12411
+        ],
+        [
+          12.93995,
+          80.1303
+        ],
+        [
+          12.94714,
+          80.13676
+        ],
+        [
+          12.95152,
+          80.14004
+        ],
+        [
+          12.96051,
+          80.14539
+        ],
+        [
+          12.96348,
+          80.14689
+        ],
+        [
+          12.97275,
+          80.15203
+        ],
+        [
+          12.97976,
+          80.16225
+        ],
+        [
+          12.98439,
+          80.17154
+        ],
+        [
+          12.99267,
+          80.18298
+        ],
+        [
+          12.99899,
+          80.193
+        ],
+        [
+          12.99631,
+          80.1912
+        ],
+        [
+          13.00216,
+          80.19712
+        ],
+        [
+          13.00343,
+          80.20075
+        ],
+        [
+          13.0071,
+          80.20353
+        ],
+        [
+          13.00766,
+          80.20298
+        ],
+        [
+          13.00826,
+          80.20936
+        ],
+        [
+          13.01082,
+          80.21688
+        ],
+        [
+          13.01402,
+          80.22335
+        ],
+        [
+          13.01935,
+          80.22441
+        ],
+        [
+          13.02568,
+          80.23034
+        ],
+        [
+          13.0304,
+          80.23851
+        ],
+        [
+          13.03619,
+          80.2462
+        ],
+        [
+          13.0452,
+          80.2481
+        ],
+        [
+          13.05103,
+          80.25006
+        ],
+        [
+          13.05688,
+          80.25685
+        ],
+        [
+          13.06156,
+          80.26225
+        ],
+        [
+          13.06291,
+          80.26395
+        ],
+        [
+          13.06767,
+          80.26903
+        ],
+        [
+          13.07095,
+          80.27405
+        ],
+        [
+          13.07807,
+          80.27611
+        ],
+        [
+          13.08197,
+          80.27527
+        ],
+        [
+          13.08293,
+          80.28209
+        ]
+      ]
+    },
+    {
+      "route_id": "23C",
+      "name": "Chetpet Crossway (Ayanavaram \u2194 Besant Nagar)",
+      "origin": "Ayanavaram B.T",
+      "destination": "Besant Nagar",
+      "depot": "Ayanavaram Depot",
+      "color": "#0891B2",
+      "waypoints": [
+        [
+          13.00025,
+          80.26593
+        ],
+        [
+          12.99572,
+          80.26777
+        ],
+        [
+          12.99623,
+          80.26277
+        ],
+        [
+          12.99687,
+          80.25598
+        ],
+        [
+          12.99875,
+          80.25603
+        ],
+        [
+          13.00603,
+          80.25739
+        ],
+        [
+          13.0065,
+          80.25366
+        ],
+        [
+          13.00655,
+          80.24844
+        ],
+        [
+          13.00429,
+          80.24757
+        ],
+        [
+          13.00456,
+          80.24735
+        ],
+        [
+          13.00654,
+          80.24646
+        ],
+        [
+          13.00666,
+          80.24111
+        ],
+        [
+          13.00748,
+          80.23669
+        ],
+        [
+          13.01009,
+          80.22629
+        ],
+        [
+          13.01207,
+          80.22147
+        ],
+        [
+          13.01514,
+          80.22468
+        ],
+        [
+          13.0191,
+          80.22438
+        ],
+        [
+          13.02234,
+          80.22649
+        ],
+        [
+          13.02554,
+          80.23011
+        ],
+        [
+          13.02801,
+          80.2354
+        ],
+        [
+          13.03219,
+          80.24197
+        ],
+        [
+          13.03619,
+          80.2462
+        ],
+        [
+          13.04292,
+          80.24763
+        ],
+        [
+          13.04722,
+          80.24852
+        ],
+        [
+          13.05177,
+          80.25042
+        ],
+        [
+          13.05637,
+          80.25638
+        ],
+        [
+          13.05987,
+          80.26021
+        ],
+        [
+          13.06291,
+          80.26395
+        ],
+        [
+          13.06663,
+          80.26844
+        ],
+        [
+          13.07021,
+          80.26599
+        ],
+        [
+          13.07269,
+          80.26273
+        ],
+        [
+          13.07363,
+          80.26152
+        ],
+        [
+          13.07645,
+          80.26421
+        ],
+        [
+          13.07738,
+          80.26127
+        ],
+        [
+          13.07675,
+          80.26023
+        ],
+        [
+          13.0755,
+          80.25858
+        ],
+        [
+          13.07732,
+          80.25679
+        ],
+        [
+          13.0791,
+          80.25468
+        ],
+        [
+          13.08186,
+          80.25414
+        ],
+        [
+          13.08136,
+          80.25016
+        ],
+        [
+          13.08241,
+          80.24979
+        ],
+        [
+          13.0857,
+          80.24658
+        ],
+        [
+          13.08767,
+          80.24356
+        ],
+        [
+          13.09051,
+          80.24085
+        ],
+        [
+          13.09576,
+          80.2416
+        ]
+      ]
+    },
+    {
+      "route_id": "48C",
+      "name": "West Circular (Vallalar Nagar \u2194 CMBT Koyambedu)",
+      "origin": "Vallalar Nagar",
+      "destination": "M.G.R.Koyambedu",
+      "depot": "Vyasarpadi Depot",
+      "color": "#DB2777",
+      "waypoints": [
+        [
+          13.06944,
+          80.20549
+        ],
+        [
+          13.07215,
+          80.20206
+        ],
+        [
+          13.07449,
+          80.19949
+        ],
+        [
+          13.0774,
+          80.19896
+        ],
+        [
+          13.08239,
+          80.19852
+        ],
+        [
+          13.09094,
+          80.19857
+        ],
+        [
+          13.09765,
+          80.1984
+        ],
+        [
+          13.09871,
+          80.19644
+        ],
+        [
+          13.10031,
+          80.19456
+        ],
+        [
+          13.10182,
+          80.19386
+        ],
+        [
+          13.10208,
+          80.19455
+        ],
+        [
+          13.10307,
+          80.19821
+        ],
+        [
+          13.10367,
+          80.2025
+        ],
+        [
+          13.10389,
+          80.20532
+        ],
+        [
+          13.10262,
+          80.20931
+        ],
+        [
+          13.10092,
+          80.21412
+        ],
+        [
+          13.09957,
+          80.21749
+        ],
+        [
+          13.0988,
+          80.22213
+        ],
+        [
+          13.09979,
+          80.22461
+        ],
+        [
+          13.1001,
+          80.22793
+        ],
+        [
+          13.09884,
+          80.23246
+        ],
+        [
+          13.09797,
+          80.23808
+        ],
+        [
+          13.09725,
+          80.24322
+        ],
+        [
+          13.09701,
+          80.24687
+        ],
+        [
+          13.09898,
+          80.24731
+        ],
+        [
+          13.10196,
+          80.24708
+        ],
+        [
+          13.1034,
+          80.2469
+        ],
+        [
+          13.10217,
+          80.25254
+        ],
+        [
+          13.10476,
+          80.25397
+        ],
+        [
+          13.10385,
+          80.25744
+        ],
+        [
+          13.10082,
+          80.26003
+        ],
+        [
+          13.09967,
+          80.26173
+        ],
+        [
+          13.09913,
+          80.26331
+        ],
+        [
+          13.09843,
+          80.26715
+        ],
+        [
+          13.09825,
+          80.2684
+        ],
+        [
+          13.10144,
+          80.27051
+        ],
+        [
+          13.10398,
+          80.27059
+        ],
+        [
+          13.10541,
+          80.27091
+        ],
+        [
+          13.10905,
+          80.26718
+        ],
+        [
+          13.10734,
+          80.26919
+        ],
+        [
+          13.1046,
+          80.27135
+        ],
+        [
+          13.10388,
+          80.27252
+        ],
+        [
+          13.10448,
+          80.27581
+        ],
+        [
+          13.10574,
+          80.2798
+        ],
+        [
+          13.10573,
+          80.28015
+        ]
+      ]
+    },
+    {
+      "route_id": "44",
+      "name": "North Harbor (Broadway \u2194 Manali)",
+      "origin": "Island Ground",
+      "destination": "Manali",
+      "depot": "Tondiarpet Depot",
+      "color": "#475569",
+      "waypoints": [
+        [
+          13.16984,
+          80.25729
+        ],
+        [
+          13.1667,
+          80.25856
+        ],
+        [
+          13.16362,
+          80.25865
+        ],
+        [
+          13.16272,
+          80.26103
+        ],
+        [
+          13.16206,
+          80.26396
+        ],
+        [
+          13.16136,
+          80.26891
+        ],
+        [
+          13.1595,
+          80.2717
+        ],
+        [
+          13.15612,
+          80.27454
+        ],
+        [
+          13.15392,
+          80.2754
+        ],
+        [
+          13.15383,
+          80.28063
+        ],
+        [
+          13.15444,
+          80.28394
+        ],
+        [
+          13.15334,
+          80.28738
+        ],
+        [
+          13.1526,
+          80.28864
+        ],
+        [
+          13.14778,
+          80.28564
+        ],
+        [
+          13.14382,
+          80.28351
+        ],
+        [
+          13.13967,
+          80.28207
+        ],
+        [
+          13.13602,
+          80.28096
+        ],
+        [
+          13.13099,
+          80.27943
+        ],
+        [
+          13.12876,
+          80.27893
+        ],
+        [
+          13.12821,
+          80.28264
+        ],
+        [
+          13.12852,
+          80.2851
+        ],
+        [
+          13.12741,
+          80.28929
+        ],
+        [
+          13.12428,
+          80.28866
+        ],
+        [
+          13.12225,
+          80.28705
+        ],
+        [
+          13.11876,
+          80.28526
+        ],
+        [
+          13.11509,
+          80.28282
+        ],
+        [
+          13.11128,
+          80.28149
+        ],
+        [
+          13.10952,
+          80.28083
+        ],
+        [
+          13.11096,
+          80.2785
+        ],
+        [
+          13.11101,
+          80.2782
+        ],
+        [
+          13.10948,
+          80.28053
+        ],
+        [
+          13.10638,
+          80.28009
+        ],
+        [
+          13.10562,
+          80.28134
+        ],
+        [
+          13.10508,
+          80.28438
+        ],
+        [
+          13.10456,
+          80.28644
+        ],
+        [
+          13.10431,
+          80.28715
+        ],
+        [
+          13.10298,
+          80.29014
+        ],
+        [
+          13.10446,
+          80.29093
+        ],
+        [
+          13.10596,
+          80.29195
+        ],
+        [
+          13.10532,
+          80.2951
+        ],
+        [
+          13.10242,
+          80.29477
+        ],
+        [
+          13.09516,
+          80.29263
+        ],
+        [
+          13.08907,
+          80.29061
+        ],
+        [
+          13.08593,
+          80.28951
+        ],
+        [
+          13.08515,
+          80.28726
+        ]
+      ]
+    }
+  ],
+  "buses": [
+    {
+      "id": "BUS-MTC-TN-01-N-1001",
+      "fleet_no": "TN-01-N-1001",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.84777,
+      "lng": 80.22644,
+      "bearing": 0.4,
+      "capacity": 70,
+      "passengers": 68,
+      "dcr": 0.97,
+      "status": "balanced",
+      "speed_kmh": 18,
+      "progress_percent": 16.6,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 90,
+      "total_alighted": 25
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1014",
+      "fleet_no": "TN-01-N-1014",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.84901,
+      "lng": 80.22645,
+      "bearing": 0.4,
+      "capacity": 70,
+      "passengers": 57,
+      "dcr": 0.81,
+      "status": "balanced",
+      "speed_kmh": 24,
+      "progress_percent": 17.4,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 86,
+      "total_alighted": 29
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1043",
+      "fleet_no": "TN-01-N-1043",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.8556,
+      "lng": 80.22626,
+      "bearing": 357.9,
+      "capacity": 70,
+      "passengers": 63,
+      "dcr": 0.9,
+      "status": "balanced",
+      "speed_kmh": 36,
+      "progress_percent": 19.7,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 87,
+      "total_alighted": 35
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1069",
+      "fleet_no": "TN-01-N-1069",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.87251,
+      "lng": 80.22659,
+      "bearing": 3.9,
+      "capacity": 70,
+      "passengers": 96,
+      "dcr": 1.37,
+      "status": "critical",
+      "speed_kmh": 31,
+      "progress_percent": 28.6,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 134,
+      "total_alighted": 33
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1086",
+      "fleet_no": "TN-01-N-1086",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.92477,
+      "lng": 80.23064,
+      "bearing": 6.3,
+      "capacity": 70,
+      "passengers": 89,
+      "dcr": 1.27,
+      "status": "critical",
+      "speed_kmh": 20,
+      "progress_percent": 53.8,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 125,
+      "total_alighted": 36
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1101",
+      "fleet_no": "TN-01-N-1101",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.94652,
+      "lng": 80.23949,
+      "bearing": 37.4,
+      "capacity": 70,
+      "passengers": 93,
+      "dcr": 1.33,
+      "status": "critical",
+      "speed_kmh": 19,
+      "progress_percent": 70.2,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 141,
+      "total_alighted": 42
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1121",
+      "fleet_no": "TN-01-N-1121",
+      "route": "102CT",
+      "route_name": "Route 102CT (Thiruvanmiyur \u2194 Siruseri I.T Park)",
+      "depot": "Adyar Depot",
+      "lat": 12.94662,
+      "lng": 80.23957,
+      "bearing": 37.4,
+      "capacity": 70,
+      "passengers": 85,
+      "dcr": 1.21,
+      "status": "crowded",
+      "speed_kmh": 27,
+      "progress_percent": 70.3,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 131,
+      "total_alighted": 41
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1150",
+      "fleet_no": "TN-01-N-1150",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.10631,
+      "lng": 80.2495,
+      "bearing": 109.7,
+      "capacity": 70,
+      "passengers": 48,
+      "dcr": 0.69,
+      "status": "surplus",
+      "speed_kmh": 26,
+      "progress_percent": 11.8,
+      "recommended_action": "Potential Donor Candidate for Intra-Depot Lending",
+      "total_boarded": 68,
+      "total_alighted": 26
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1174",
+      "fleet_no": "TN-01-N-1174",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.10263,
+      "lng": 80.25262,
+      "bearing": 199.1,
+      "capacity": 70,
+      "passengers": 58,
+      "dcr": 0.83,
+      "status": "balanced",
+      "speed_kmh": 24,
+      "progress_percent": 14.7,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 87,
+      "total_alighted": 29
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1197",
+      "fleet_no": "TN-01-N-1197",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.07918,
+      "lng": 80.25468,
+      "bearing": 177.2,
+      "capacity": 70,
+      "passengers": 94,
+      "dcr": 1.34,
+      "status": "critical",
+      "speed_kmh": 23,
+      "progress_percent": 27.1,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 137,
+      "total_alighted": 35
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1211",
+      "fleet_no": "TN-01-N-1211",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.07589,
+      "lng": 80.24113,
+      "bearing": 171.6,
+      "capacity": 70,
+      "passengers": 90,
+      "dcr": 1.29,
+      "status": "critical",
+      "speed_kmh": 35,
+      "progress_percent": 32.3,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 122,
+      "total_alighted": 35
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1231",
+      "fleet_no": "TN-01-N-1231",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.04337,
+      "lng": 80.26728,
+      "bearing": 113.8,
+      "capacity": 70,
+      "passengers": 96,
+      "dcr": 1.37,
+      "status": "critical",
+      "speed_kmh": 25,
+      "progress_percent": 56.5,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 148,
+      "total_alighted": 51
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1244",
+      "fleet_no": "TN-01-N-1244",
+      "route": "29C",
+      "route_name": "Route 29C (Perambur B.T \u2194 Besant Nagar)",
+      "depot": "Perambur Depot",
+      "lat": 13.04307,
+      "lng": 80.26662,
+      "bearing": 359.0,
+      "capacity": 70,
+      "passengers": 88,
+      "dcr": 1.26,
+      "status": "critical",
+      "speed_kmh": 24,
+      "progress_percent": 67.2,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 138,
+      "total_alighted": 41
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1258",
+      "fleet_no": "TN-01-N-1258",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 12.95987,
+      "lng": 80.14508,
+      "bearing": 27.5,
+      "capacity": 70,
+      "passengers": 92,
+      "dcr": 1.31,
+      "status": "critical",
+      "speed_kmh": 36,
+      "progress_percent": 28.7,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 131,
+      "total_alighted": 43
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1278",
+      "fleet_no": "TN-01-N-1278",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 12.96651,
+      "lng": 80.14864,
+      "bearing": 27.9,
+      "capacity": 70,
+      "passengers": 87,
+      "dcr": 1.24,
+      "status": "crowded",
+      "speed_kmh": 34,
+      "progress_percent": 30.2,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 125,
+      "total_alighted": 45
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1294",
+      "fleet_no": "TN-01-N-1294",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 12.98046,
+      "lng": 80.16365,
+      "bearing": 62.9,
+      "capacity": 70,
+      "passengers": 85,
+      "dcr": 1.21,
+      "status": "crowded",
+      "speed_kmh": 23,
+      "progress_percent": 34.4,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 130,
+      "total_alighted": 36
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1310",
+      "fleet_no": "TN-01-N-1310",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 13.00188,
+      "lng": 80.19684,
+      "bearing": 78.9,
+      "capacity": 70,
+      "passengers": 90,
+      "dcr": 1.29,
+      "status": "critical",
+      "speed_kmh": 32,
+      "progress_percent": 41.2,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 131,
+      "total_alighted": 53
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1334",
+      "fleet_no": "TN-01-N-1334",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 13.00702,
+      "lng": 80.20254,
+      "bearing": 22.6,
+      "capacity": 70,
+      "passengers": 84,
+      "dcr": 1.2,
+      "status": "crowded",
+      "speed_kmh": 21,
+      "progress_percent": 46.5,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 126,
+      "total_alighted": 38
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1367",
+      "fleet_no": "TN-01-N-1367",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 13.02046,
+      "lng": 80.24211,
+      "bearing": 12.4,
+      "capacity": 70,
+      "passengers": 96,
+      "dcr": 1.37,
+      "status": "critical",
+      "speed_kmh": 28,
+      "progress_percent": 63.1,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 128,
+      "total_alighted": 41
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1399",
+      "fleet_no": "TN-01-N-1399",
+      "route": "21G",
+      "route_name": "Route 21G (Kcbt - Kilambakkam \u2194 Island Ground)",
+      "depot": "Tambaram Depot",
+      "lat": 13.04406,
+      "lng": 80.2731,
+      "bearing": 95.5,
+      "capacity": 70,
+      "passengers": 52,
+      "dcr": 0.74,
+      "status": "balanced",
+      "speed_kmh": 26,
+      "progress_percent": 84.8,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 82,
+      "total_alighted": 27
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1434",
+      "fleet_no": "TN-01-N-1434",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.83239,
+      "lng": 80.22908,
+      "bearing": 349.1,
+      "capacity": 70,
+      "passengers": 76,
+      "dcr": 1.09,
+      "status": "crowded",
+      "speed_kmh": 28,
+      "progress_percent": 20.8,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 109,
+      "total_alighted": 25
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1446",
+      "fleet_no": "TN-01-N-1446",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.86915,
+      "lng": 80.22648,
+      "bearing": 0.8,
+      "capacity": 70,
+      "passengers": 76,
+      "dcr": 1.09,
+      "status": "crowded",
+      "speed_kmh": 19,
+      "progress_percent": 33.1,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 104,
+      "total_alighted": 35
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1465",
+      "fleet_no": "TN-01-N-1465",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.93461,
+      "lng": 80.23314,
+      "bearing": 24.0,
+      "capacity": 70,
+      "passengers": 64,
+      "dcr": 0.91,
+      "status": "balanced",
+      "speed_kmh": 33,
+      "progress_percent": 59.2,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 98,
+      "total_alighted": 37
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1500",
+      "fleet_no": "TN-01-N-1500",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.94103,
+      "lng": 80.2362,
+      "bearing": 32.3,
+      "capacity": 70,
+      "passengers": 79,
+      "dcr": 1.13,
+      "status": "crowded",
+      "speed_kmh": 33,
+      "progress_percent": 61.7,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 125,
+      "total_alighted": 27
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1516",
+      "fleet_no": "TN-01-N-1516",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.95776,
+      "lng": 80.24392,
+      "bearing": 21.4,
+      "capacity": 70,
+      "passengers": 86,
+      "dcr": 1.23,
+      "status": "crowded",
+      "speed_kmh": 24,
+      "progress_percent": 72.1,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 135,
+      "total_alighted": 45
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1541",
+      "fleet_no": "TN-01-N-1541",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 12.9858,
+      "lng": 80.25157,
+      "bearing": 351.2,
+      "capacity": 70,
+      "passengers": 67,
+      "dcr": 0.96,
+      "status": "balanced",
+      "speed_kmh": 27,
+      "progress_percent": 81.1,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 95,
+      "total_alighted": 33
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1575",
+      "fleet_no": "TN-01-N-1575",
+      "route": "19B",
+      "route_name": "Route 19B (Saidapet \u2194 Kelambakkam)",
+      "depot": "Saidapet Depot",
+      "lat": 13.00007,
+      "lng": 80.24832,
+      "bearing": 348.9,
+      "capacity": 70,
+      "passengers": 65,
+      "dcr": 0.93,
+      "status": "balanced",
+      "speed_kmh": 32,
+      "progress_percent": 84.7,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 86,
+      "total_alighted": 23
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1603",
+      "fleet_no": "TN-01-N-1603",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 12.89659,
+      "lng": 80.08759,
+      "bearing": 65.4,
+      "capacity": 70,
+      "passengers": 41,
+      "dcr": 0.59,
+      "status": "surplus",
+      "speed_kmh": 20,
+      "progress_percent": 8.6,
+      "recommended_action": "Potential Donor Candidate for Intra-Depot Lending",
+      "total_boarded": 59,
+      "total_alighted": 15
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1625",
+      "fleet_no": "TN-01-N-1625",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 12.90003,
+      "lng": 80.09153,
+      "bearing": 38.5,
+      "capacity": 70,
+      "passengers": 51,
+      "dcr": 0.73,
+      "status": "balanced",
+      "speed_kmh": 22,
+      "progress_percent": 9.8,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 77,
+      "total_alighted": 28
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1654",
+      "fleet_no": "TN-01-N-1654",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 12.89848,
+      "lng": 80.09059,
+      "bearing": 217.0,
+      "capacity": 70,
+      "passengers": 65,
+      "dcr": 0.93,
+      "status": "balanced",
+      "speed_kmh": 33,
+      "progress_percent": 12.9,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 100,
+      "total_alighted": 23
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1673",
+      "fleet_no": "TN-01-N-1673",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 13.00212,
+      "lng": 80.19708,
+      "bearing": 44.6,
+      "capacity": 70,
+      "passengers": 77,
+      "dcr": 1.1,
+      "status": "crowded",
+      "speed_kmh": 31,
+      "progress_percent": 54.5,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 109,
+      "total_alighted": 43
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1696",
+      "fleet_no": "TN-01-N-1696",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 13.00442,
+      "lng": 80.2015,
+      "bearing": 36.4,
+      "capacity": 70,
+      "passengers": 82,
+      "dcr": 1.17,
+      "status": "crowded",
+      "speed_kmh": 21,
+      "progress_percent": 57.4,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 108,
+      "total_alighted": 42
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1728",
+      "fleet_no": "TN-01-N-1728",
+      "route": "18A",
+      "route_name": "Route 18A (Kcbt - Kilambakkam \u2194 Royapuram B.S)",
+      "depot": "T.Nagar Depot",
+      "lat": 13.013,
+      "lng": 80.22129,
+      "bearing": 63.1,
+      "capacity": 70,
+      "passengers": 81,
+      "dcr": 1.16,
+      "status": "crowded",
+      "speed_kmh": 24,
+      "progress_percent": 67.5,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 109,
+      "total_alighted": 35
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1747",
+      "fleet_no": "TN-01-N-1747",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.00652,
+      "lng": 80.25206,
+      "bearing": 270.6,
+      "capacity": 70,
+      "passengers": 47,
+      "dcr": 0.67,
+      "status": "surplus",
+      "speed_kmh": 35,
+      "progress_percent": 14.3,
+      "recommended_action": "Potential Donor Candidate for Intra-Depot Lending",
+      "total_boarded": 72,
+      "total_alighted": 27
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1779",
+      "fleet_no": "TN-01-N-1779",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.00658,
+      "lng": 80.24485,
+      "bearing": 271.3,
+      "capacity": 70,
+      "passengers": 75,
+      "dcr": 1.07,
+      "status": "crowded",
+      "speed_kmh": 31,
+      "progress_percent": 23.4,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 108,
+      "total_alighted": 27
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1796",
+      "fleet_no": "TN-01-N-1796",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.03466,
+      "lng": 80.24459,
+      "bearing": 45.9,
+      "capacity": 70,
+      "passengers": 74,
+      "dcr": 1.06,
+      "status": "crowded",
+      "speed_kmh": 30,
+      "progress_percent": 46.9,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 96,
+      "total_alighted": 30
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1813",
+      "fleet_no": "TN-01-N-1813",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.07714,
+      "lng": 80.26087,
+      "bearing": 238.1,
+      "capacity": 70,
+      "passengers": 83,
+      "dcr": 1.19,
+      "status": "crowded",
+      "speed_kmh": 31,
+      "progress_percent": 75.9,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 125,
+      "total_alighted": 43
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1834",
+      "fleet_no": "TN-01-N-1834",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.07578,
+      "lng": 80.2583,
+      "bearing": 316.2,
+      "capacity": 70,
+      "passengers": 81,
+      "dcr": 1.16,
+      "status": "crowded",
+      "speed_kmh": 33,
+      "progress_percent": 79.9,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 109,
+      "total_alighted": 31
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1867",
+      "fleet_no": "TN-01-N-1867",
+      "route": "23C",
+      "route_name": "Route 23C (Ayanavaram B.T \u2194 Besant Nagar)",
+      "depot": "Ayanavaram Depot",
+      "lat": 13.07703,
+      "lng": 80.25707,
+      "bearing": 316.2,
+      "capacity": 70,
+      "passengers": 67,
+      "dcr": 0.96,
+      "status": "balanced",
+      "speed_kmh": 35,
+      "progress_percent": 81.5,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 88,
+      "total_alighted": 26
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1902",
+      "fleet_no": "TN-01-N-1902",
+      "route": "48C",
+      "route_name": "Route 48C (Vallalar Nagar \u2194 M.G.R.Koyambedu)",
+      "depot": "Vyasarpadi Depot",
+      "lat": 13.10191,
+      "lng": 80.19409,
+      "bearing": 68.8,
+      "capacity": 70,
+      "passengers": 56,
+      "dcr": 0.8,
+      "status": "balanced",
+      "speed_kmh": 20,
+      "progress_percent": 21.2,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 84,
+      "total_alighted": 20
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1916",
+      "fleet_no": "TN-01-N-1916",
+      "route": "48C",
+      "route_name": "Route 48C (Vallalar Nagar \u2194 M.G.R.Koyambedu)",
+      "depot": "Vyasarpadi Depot",
+      "lat": 13.09722,
+      "lng": 80.2436,
+      "bearing": 93.9,
+      "capacity": 70,
+      "passengers": 82,
+      "dcr": 1.17,
+      "status": "crowded",
+      "speed_kmh": 36,
+      "progress_percent": 50.2,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 121,
+      "total_alighted": 39
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1935",
+      "fleet_no": "TN-01-N-1935",
+      "route": "48C",
+      "route_name": "Route 48C (Vallalar Nagar \u2194 M.G.R.Koyambedu)",
+      "depot": "Vyasarpadi Depot",
+      "lat": 13.10212,
+      "lng": 80.24706,
+      "bearing": 353.1,
+      "capacity": 70,
+      "passengers": 91,
+      "dcr": 1.3,
+      "status": "critical",
+      "speed_kmh": 34,
+      "progress_percent": 57.1,
+      "recommended_action": "Priority 1: Fleet Injection (+1 Reserve Bus)",
+      "total_boarded": 126,
+      "total_alighted": 34
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1965",
+      "fleet_no": "TN-01-N-1965",
+      "route": "48C",
+      "route_name": "Route 48C (Vallalar Nagar \u2194 M.G.R.Koyambedu)",
+      "depot": "Vyasarpadi Depot",
+      "lat": 13.10153,
+      "lng": 80.27051,
+      "bearing": 1.8,
+      "capacity": 70,
+      "passengers": 72,
+      "dcr": 1.03,
+      "status": "crowded",
+      "speed_kmh": 26,
+      "progress_percent": 79.6,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 102,
+      "total_alighted": 36
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-1984",
+      "fleet_no": "TN-01-N-1984",
+      "route": "48C",
+      "route_name": "Route 48C (Vallalar Nagar \u2194 M.G.R.Koyambedu)",
+      "depot": "Vyasarpadi Depot",
+      "lat": 13.10726,
+      "lng": 80.26926,
+      "bearing": 142.5,
+      "capacity": 70,
+      "passengers": 36,
+      "dcr": 0.51,
+      "status": "surplus",
+      "speed_kmh": 20,
+      "progress_percent": 88.7,
+      "recommended_action": "Potential Donor Candidate for Intra-Depot Lending",
+      "total_boarded": 46,
+      "total_alighted": 17
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2006",
+      "fleet_no": "TN-01-N-2006",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.15873,
+      "lng": 80.27235,
+      "bearing": 140.7,
+      "capacity": 70,
+      "passengers": 58,
+      "dcr": 0.83,
+      "status": "balanced",
+      "speed_kmh": 32,
+      "progress_percent": 14.2,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 89,
+      "total_alighted": 29
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2023",
+      "fleet_no": "TN-01-N-2023",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.15305,
+      "lng": 80.28788,
+      "bearing": 121.1,
+      "capacity": 70,
+      "passengers": 87,
+      "dcr": 1.24,
+      "status": "crowded",
+      "speed_kmh": 18,
+      "progress_percent": 25.9,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 130,
+      "total_alighted": 40
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2051",
+      "fleet_no": "TN-01-N-2051",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.14651,
+      "lng": 80.28495,
+      "bearing": 207.6,
+      "capacity": 70,
+      "passengers": 76,
+      "dcr": 1.09,
+      "status": "crowded",
+      "speed_kmh": 26,
+      "progress_percent": 30.3,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 101,
+      "total_alighted": 25
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2067",
+      "fleet_no": "TN-01-N-2067",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.10301,
+      "lng": 80.29015,
+      "bearing": 27.5,
+      "capacity": 70,
+      "passengers": 61,
+      "dcr": 0.87,
+      "status": "balanced",
+      "speed_kmh": 27,
+      "progress_percent": 81.9,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 90,
+      "total_alighted": 31
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2087",
+      "fleet_no": "TN-01-N-2087",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.10309,
+      "lng": 80.2902,
+      "bearing": 27.5,
+      "capacity": 70,
+      "passengers": 71,
+      "dcr": 1.01,
+      "status": "crowded",
+      "speed_kmh": 34,
+      "progress_percent": 82.0,
+      "recommended_action": "Priority 2: Short-Turn Loop at Major Interchange",
+      "total_boarded": 102,
+      "total_alighted": 40
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2107",
+      "fleet_no": "TN-01-N-2107",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.10595,
+      "lng": 80.29199,
+      "bearing": 101.8,
+      "capacity": 70,
+      "passengers": 56,
+      "dcr": 0.8,
+      "status": "balanced",
+      "speed_kmh": 31,
+      "progress_percent": 86.4,
+      "recommended_action": "Maintain Standard Operating Headway",
+      "total_boarded": 86,
+      "total_alighted": 17
+    },
+    {
+      "id": "BUS-MTC-TN-01-N-2121",
+      "fleet_no": "TN-01-N-2121",
+      "route": "44",
+      "route_name": "Route 44 (Island Ground \u2194 Manali)",
+      "depot": "Tondiarpet Depot",
+      "lat": 13.09998,
+      "lng": 80.29405,
+      "bearing": 196.0,
+      "capacity": 70,
+      "passengers": 26,
+      "dcr": 0.37,
+      "status": "surplus",
+      "speed_kmh": 26,
+      "progress_percent": 91.7,
+      "recommended_action": "Potential Donor Candidate for Intra-Depot Lending",
+      "total_boarded": 35,
+      "total_alighted": 11
+    }
+  ],
+  "transfer_stops": [
+    {
+      "name": "Chennai Central (M.G.R. Central)",
+      "lat": 13.0827,
+      "lon": 80.2755,
+      "type": "Intermodal Hub"
+    },
+    {
+      "name": "Broadway Bus Terminus",
+      "lat": 13.0886,
+      "lon": 80.287,
+      "type": "Major Terminal"
+    },
+    {
+      "name": "CMBT Koyambedu",
+      "lat": 13.0673,
+      "lon": 80.2057,
+      "type": "Intercity Terminal"
+    },
+    {
+      "name": "Tambaram Sanatorium / Bus Stand",
+      "lat": 12.9249,
+      "lon": 80.128,
+      "type": "Suburban Hub"
+    },
+    {
+      "name": "Guindy Railway Station / Metro",
+      "lat": 13.0067,
+      "lon": 80.2119,
+      "type": "Interchange Hub"
+    },
+    {
+      "name": "T. Nagar Terminus",
+      "lat": 13.0418,
+      "lon": 80.2341,
+      "type": "Commercial Terminal"
+    },
+    {
+      "name": "Tidel Park / Thiruvanmiyur",
+      "lat": 12.9897,
+      "lon": 80.2474,
+      "type": "OMR Tech Gateway"
+    },
+    {
+      "name": "Sholinganallur Junction",
+      "lat": 12.901,
+      "lon": 80.2279,
+      "type": "OMR Junction"
+    },
+    {
+      "name": "Perambur Bus Depot / Station",
+      "lat": 13.1116,
+      "lon": 80.2428,
+      "type": "North Hub"
+    },
+    {
+      "name": "Adyar Depot / Madhya Kailash",
+      "lat": 13.0072,
+      "lon": 80.2529,
+      "type": "South Arterial Hub"
+    },
+    {
+      "name": "Saidapet Court / Bus Stop",
+      "lat": 13.021,
+      "lon": 80.223,
+      "type": "Radial Hub"
+    },
+    {
+      "name": "Kelambakkam Terminus",
+      "lat": 12.7876,
+      "lon": 80.2201,
+      "type": "Southern Terminal"
+    }
+  ]
+}

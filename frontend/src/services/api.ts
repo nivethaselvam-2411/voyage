@@ -5,6 +5,7 @@ import type {
   RouteItem,
   DatasetManifest,
   HourlySummary,
+  LiveNetworkResponse,
   ActionType,
   MetricType
 } from '../types';
@@ -15,6 +16,7 @@ import rebalancePairsMock from '../mocks/rebalance-pairs.json';
 import routesMock from '../mocks/routes.json';
 import datasetManifestMock from '../mocks/dataset-manifest.json';
 import hourlySummaryMock from '../mocks/hourly-summary.json';
+import liveNetworkMock from '../mocks/live-network.json';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 // Connect to real backend by default; fallback to mocks if backend is unreachable or if VITE_USE_MOCKS is explicitly 'true'
@@ -296,3 +298,22 @@ export async function fetchHourlySummary(): Promise<HourlySummary> {
   await delay(80);
   return hourlySummaryMock as unknown as HourlySummary;
 }
+
+export async function fetchLiveNetwork(): Promise<LiveNetworkResponse> {
+  if (!USE_MOCKS) {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/live-network`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.buses && data.buses.length > 0) {
+          return data as LiveNetworkResponse;
+        }
+      }
+    } catch (err) {
+      console.warn('API /api/live-network unreachable, falling back to mock:', err);
+    }
+  }
+  await delay(120);
+  return liveNetworkMock as unknown as LiveNetworkResponse;
+}
+
